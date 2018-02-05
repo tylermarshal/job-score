@@ -18,12 +18,16 @@ def omniauth_response
   OmniAuth.config.test_mode = true
 
   OmniAuth.config.mock_auth[:linkedin] = OmniAuth::AuthHash.new({"provider"=>"linkedin",
-    "uid"=>12345,
-    "credentials"=>{"token"=>ENV["GITHUB_TOKEN"]},
-    "extra"=>
-      {"raw_info"=>
-        {"login"=>"tylermarshal",
-         "name"=>"Tyler Madsen"}}})
+    "uid"=>"asdfsdf",
+    "credentials"=>{"token"=>ENV["LINKEDIN_TOKEN"], "secret"=>ENV["LINKEDIN_SECRET"]},
+    "info"=> {
+      "email"=>"madsen.tyler@gmail.com",
+      "name"=>"Tyler Madsen"},
+    "extra" => {
+      "access_token" => {
+        "params" => {
+          "oauth_expires_in"=>"5183999",
+          "oauth_authorization_expires_in"=>"5183999"}}}})
 end
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
