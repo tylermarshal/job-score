@@ -17,3 +17,8 @@
 /yarn-error.log
 
 .byebug_history
+
+/config/locales/application.yml
+
+# Ignore application configuration
+/config/application.yml
