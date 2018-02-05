@@ -3,7 +3,7 @@ require "rails_helper"
 describe "a user goes to the homepage" do
   context "the user clicks on login with linkedin" do
     it "the user logs in with linkedin" do
-      Capybara.app = Apicurious::Application
+      Capybara.app = JobMatch::Application
 
       omniauth_response
 
