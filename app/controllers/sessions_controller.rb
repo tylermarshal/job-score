@@ -7,5 +7,12 @@ class SessionsController < ApplicationController
     redirect_to dashboard_index_path
   end
 
+  def destroy
+    session.delete(:user_id)
+    @current_user = nil
+
+    redirect_to root_path
+  end
+
 
 end
