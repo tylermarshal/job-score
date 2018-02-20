@@ -7,7 +7,7 @@ class User < ApplicationRecord
         self.create_or_update(new_user, auth_info)
       end
     else
-      if user.created_at + user.expires <= Time.now
+      if user.created_at + user.expires.to_i >= Time.now
         user
       else
         self.create_or_update(user, auth_info)
