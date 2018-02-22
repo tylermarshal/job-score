@@ -5,16 +5,19 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="shortcut icon" type="image/x-icon" href="score-arrow-favicon.png" />
+    <%= favicon_link_tag("score-arrow-xs") %>
   </head>
 
   <body>
     <%= render partial: "shared/navbar" %>
+
     <% flash.each do |name, msg| %>
       <%= content_tag :div, raw(msg), class: name %>
     <% end %>
+
     <%= yield %>
+
+    <%= javascript_include_tag 'application' %>
   </body>
 </html>
