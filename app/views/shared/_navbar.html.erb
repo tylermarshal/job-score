@@ -1,8 +1,49 @@
+<ul class="top-nav">
+  <li>
+    <a href="/"><%= image_tag("score-arrow-xs", class: "logo") %></a>
+  </li>
+  <li>
+    <div class="brand">
+      Job<span class="score">Score</span>
+    </div>
+  </li>
+</ul>
+<a href="#" class="toggle">
+  <div>
+    <div class="toggle-button"></div>
+    <div class="toggle-button"></div>
+    <div class="toggle-button"></div>
+  </div>
+  <div class="menu-button">
+    Menu
+  </div>
+</a>
+<div class="hamburger-navbar-border"></div>
 <nav>
-  <% if current_user %>
-    Logged in as <%= current_user.name %>
-    <%= link_to "Logout", logout_path, method: :delete %>
-  <% else %>
-    <%= link_to "Login with LinkedIn", linkedin_login_path %>
-  <% end %>
+  <div class="bottom-nav-container inactive">
+    <ul class="bottom-nav">
+      <% if current_user %>
+      <li>
+        <%= link_to "Job Analysis", "#" %>
+      </li>
+      <li>
+        <%= link_to "Cover Letter Analysis", "#" %>
+      </li>
+      <li>
+        <%= link_to "Dashboard", "#" %>
+      </li>
+      <li>
+        <%= link_to "Logout", logout_path, method: :delete %>
+      </li>
+      <% else %>
+      <li>
+        <%= link_to "Analysis Examples", "#" %>
+      </li>
+      <li>
+        <%= link_to "Login with LinkedIn", linkedin_login_path %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
 </nav>
+<div class="full-navbar-border"></div>
