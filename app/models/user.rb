@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 
+  has_many :resumes
+
   def self.from_omniauth(auth_info)
     user = find_by(uid: auth_info[:uid])
     if user.nil?
@@ -7,7 +9,7 @@ class User < ApplicationRecord
         self.create_or_update(new_user, auth_info)
       end
     else
-      if user.created_at + user.expires.to_i >= Time.now
+      if user.updated_at + user.expires.to_i >= Time.now
         user
       else
         self.create_or_update(user, auth_info)
@@ -23,6 +25,5 @@ class User < ApplicationRecord
     user_type.token                  = auth_info.credentials.token
     user_type.token_secret           = auth_info.credentials.secret
     user_type.expires                = auth_info.extra.access_token.params[:oauth_expires_in]
-    user_type.authorization_expires  = auth_info.extra.access_token.params[:oauth_authorization_expires_in]
   end
 end
