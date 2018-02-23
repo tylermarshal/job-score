@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :dashboard, only: [:index]
 
   resources :resumes, only: [:create]
+  resources :cover_letters, only: [:create]
 end
