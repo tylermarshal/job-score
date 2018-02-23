@@ -18,6 +18,10 @@ gem 'faraday'
 gem 'omniauth-linkedin'
 gem 'jquery-rails'
 gem 'active_model_serializers', '~> 0.10.0'
+gem "multi_json"
+gem 'google-cloud-language'
+gem 'newrelic_rpm'
+gem 'redis-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
