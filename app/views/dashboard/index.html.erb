@@ -13,10 +13,36 @@
     <% end %>
   </div>
 </div>
+<input type="file" accept="image/*" capture="camera">
+
+<% if !current_user.resumes.empty? %>
+  <div>
+    <h3>Your Resumes</h3>
+    <% current_user.resumes.each do |resume| %>
+    <%= resume.name %>
+    <% end %>
+  </div>
+<% end %>
 
 <div>
-  <h3>Your Resumes</h3>
-  <% current_user.resumes.each do |resume| %>
-    <%= resume.name %>
-  <% end %>
+  <a href="#" class="paste">Paste a Cover Letter</a>
+  <div class="inactive">
+    <%= form_for @cover_letter, :url => {:controller => :cover_letters, :action => "create"}  do |f| %>
+    <%= f.text_field :name, placeholder: "Cover Letter Name" %>
+
+    <%= f.text_field :body, placeholder: "Paste Cover Letter Here" %>
+
+    <%= f.submit "Add Cover Letter" %>
+    <% end %>
+  </div>
 </div>
+<input type="file" accept="image/*" capture="camera">
+
+<% if !current_user.cover_letters.empty? %>
+  <div>
+    <h3>Your Cover Letters</h3>
+    <% current_user.cover_letters.each do |cover_letter| %>
+      <%= cover_letter.name %>
+    <% end %>
+  </div>
+<% end %>
