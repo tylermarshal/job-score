@@ -11,7 +11,6 @@ describe "a user goes to the homepage" do
       expect(page.status_code).to eq(200)
       click_link "Login with LinkedIn"
       expect(current_path).to eq("/dashboard")
-      expect(page).to have_content("Tyler")
       expect(page).to have_link("Logout")
 
     end
