@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180224020520) do
+ActiveRecord::Schema.define(version: 20180224031737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(version: 20180224020520) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_cover_letters_on_user_id"
+  end
+
+  create_table "job_entities", force: :cascade do |t|
+    t.bigint "job_id"
+    t.string "entity"
+    t.integer "salience"
+    t.integer "magnitude"
+    t.string "wikipedia"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_id"], name: "index_job_entities_on_job_id"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -66,6 +77,7 @@ ActiveRecord::Schema.define(version: 20180224020520) do
   end
 
   add_foreign_key "cover_letters", "users"
+  add_foreign_key "job_entities", "jobs"
   add_foreign_key "jobs", "users"
   add_foreign_key "resume_entities", "resumes"
   add_foreign_key "resumes", "users"
