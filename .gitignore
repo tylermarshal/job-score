@@ -16,6 +16,9 @@
 /node_modules
 /yarn-error.log
 
+# VCR Fixture Location
+/spec/fixtures/vcr_cassettes
+
 .byebug_history
 
 /config/locales/application.yml
