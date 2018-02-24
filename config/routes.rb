@@ -10,4 +10,6 @@ Rails.application.routes.draw do
 
   resources :resumes, only: [:create]
   resources :cover_letters, only: [:create]
-end
+  resources :jobs, only: [:create]
+
+9end

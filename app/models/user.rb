@@ -2,6 +2,7 @@ class User < ApplicationRecord
 
   has_many :resumes
   has_many :cover_letters
+  has_many :jobs
 
   def self.from_omniauth(auth_info)
     user = find_by(uid: auth_info[:uid])
