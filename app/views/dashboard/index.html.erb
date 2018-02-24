@@ -46,3 +46,27 @@
     <% end %>
   </div>
 <% end %>
+
+<div>
+  <a href="#" class="paste">Paste a Job Description</a>
+  <div class="inactive">
+    <%= form_for @job, :url => {:controller => :jobs, :action => "create"}  do |f| %>
+    <%= f.text_field :company_name, placeholder: "Company Name" %>
+    <%= f.text_field :job_title, placeholder: "Job Title" %>
+
+    <%= f.text_field :description, placeholder: "Paste Job Description Here" %>
+
+    <%= f.submit "Add Job" %>
+    <% end %>
+  </div>
+</div>
+<input type="file" accept="image/*" capture="camera">
+
+<% if !current_user.jobs.empty? %>
+  <div>
+    <h3>Your Jobs</h3>
+    <% current_user.jobs.each do |job| %>
+      <%= job.company_name %>: <%= job.job_title %>
+    <% end %>
+  </div>
+<% end %>
