@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180224031737) do
+ActiveRecord::Schema.define(version: 20180224035707) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cover_letter_entities", force: :cascade do |t|
+    t.bigint "cover_letter_id"
+    t.string "entity"
+    t.decimal "salience"
+    t.decimal "magnitude"
+    t.decimal "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cover_letter_id"], name: "index_cover_letter_entities_on_cover_letter_id"
+  end
 
   create_table "cover_letters", force: :cascade do |t|
     t.bigint "user_id"
@@ -27,8 +38,8 @@ ActiveRecord::Schema.define(version: 20180224031737) do
   create_table "job_entities", force: :cascade do |t|
     t.bigint "job_id"
     t.string "entity"
-    t.integer "salience"
-    t.integer "magnitude"
+    t.decimal "salience"
+    t.decimal "magnitude"
     t.string "wikipedia"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -50,7 +61,6 @@ ActiveRecord::Schema.define(version: 20180224031737) do
     t.string "entity"
     t.decimal "salience"
     t.decimal "magnitude"
-    t.string "wikipedia"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["resume_id"], name: "index_resume_entities_on_resume_id"
@@ -76,6 +86,7 @@ ActiveRecord::Schema.define(version: 20180224031737) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "cover_letter_entities", "cover_letters"
   add_foreign_key "cover_letters", "users"
   add_foreign_key "job_entities", "jobs"
   add_foreign_key "jobs", "users"
