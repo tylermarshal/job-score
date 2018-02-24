@@ -34,9 +34,9 @@ I think that my skill set aligns perfectly with the needs of Health First Clinic
 
     expect(page).to have_content("Cover Letter 1")
 
-    resume = CoverLetter.last
+    cover_letter = CoverLetter.last
 
-    expect(resume.name).to eq ("Cover Letter 1")
-    expect(resume.body).to eq (cover_letter_text)
+    expect(cover_letter.name).to eq ("Cover Letter 1")
+    expect(cover_letter.body).to eq (cover_letter_text)
   end
 end
