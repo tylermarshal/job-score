@@ -7,16 +7,16 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 require 'capybara/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
-require 'webmock/rspec'
+# require 'webmock/rspec'
 require 'support/factory_girl'
 require 'database_cleaner'
-require 'vcr'
+# require 'vcr'
 
-VCR.configure do |config|
-  config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
-  config.hook_into :webmock
-  config.filter_sensitive_data("<linkedin_token>") { ENV["LINKEDIN_TOKEN"] }
-end
+# VCR.configure do |config|
+#   config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+#   config.hook_into :webmock
+#   config.filter_sensitive_data("<linkedin_token>") { ENV["LINKEDIN_TOKEN"] }
+# end
 
 def omniauth_response
   OmniAuth.config.test_mode = true

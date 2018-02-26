@@ -20,6 +20,7 @@ gem 'jquery-rails'
 gem 'active_model_serializers', '~> 0.10.0'
 gem "multi_json"
 gem 'google-cloud-language'
+gem 'google-cloud-vision'
 gem 'newrelic_rpm'
 gem 'redis-rails'
 
@@ -32,10 +33,10 @@ group :development, :test do
   gem 'database_cleaner'
 end
 
-group :test do
-  gem 'vcr'
-  gem 'webmock'
-end
+# group :test do
+#   gem 'vcr'
+#   gem 'webmock'
+# end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
