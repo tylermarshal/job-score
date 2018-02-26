@@ -1,4 +1,4 @@
 class Resume < ApplicationRecord
   belongs_to :user
-  has_many :resume_entities
+  has_many :resume_entities, dependent: :destroy
 end
