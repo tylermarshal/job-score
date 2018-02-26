@@ -1,7 +1,7 @@
 class JobEntityService
 
-  def generate(job)
-    entities = GoogleNaturalLanguageService.new.analyze(job.body)
+  def self.generate(job)
+    entities = GoogleNaturalLanguageService.analyze(job.description)
     entities.each do |entity|
       if entity.salience != 0.0 && entity.sentiment.magnitude != 0.0
         if entity.metadata.has_key?("wikipedia_url")

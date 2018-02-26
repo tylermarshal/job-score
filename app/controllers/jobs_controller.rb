@@ -3,7 +3,7 @@ class JobsController < ApplicationController
   def create
     @job = current_user.jobs.new(job_params)
     if @job.save!
-      JobEntityService.new.generate(@job)
+      JobEntityService.generate(@job)
       redirect_to dashboard_index_path
     else
       flash.notice = "Something went wrong, try adding the job description again."

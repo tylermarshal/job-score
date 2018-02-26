@@ -7,7 +7,7 @@ RSpec.describe CoverLetterEntity, type: :model do
     cover_letter = create(:cover_letter, user: user, body: text)
     # VCR.use_cassette("services/find_cover_letter_entities") do
 
-      entities = CoverLetterEntityService.new.generate(cover_letter)
+      entities = CoverLetterEntityService.generate(cover_letter)
       entity = entities.first
 
       expect(entities.count).to eq(12)
