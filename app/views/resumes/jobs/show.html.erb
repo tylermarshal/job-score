@@ -1,0 +1,23 @@
+<%= form_for :resume_jobs, :url => resume_job_path do |f| %>
+  <%= f.collection_select(:name, @user_resumes, :name, :id)  %>
+  <%= f.collection_select(:job_title, @user_jobs, :job_title, :id)  %>
+  <%= f.submit %>
+<% end %>
+
+<h3>Keywords</h3>
+<p>Below is a list of keywords you may want to consider adding to your resume, in order to better match better with the job description:</p>
+
+<ul>
+
+<% @keywords.each do |keyword| %>
+  <% if keyword.wikipedia.nil? %>
+    <li>
+      <%= keyword.entity.downcase %>
+    </li>
+  <% else %>
+    <li>
+      <%= link_to keyword.entity.downcase, keyword.wikipedia %>
+    </li>
+  <% end %>
+<% end %>
+</ul>
