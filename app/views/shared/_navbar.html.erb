@@ -22,9 +22,13 @@
 <nav>
   <div class="bottom-nav-container inactive">
     <ul class="bottom-nav">
-      <% if current_user %>
+      <% if logged_in? %>
       <li>
-        <%= link_to "Resume Analysis", "#" %>
+        <% if current_user.resumes.empty? || current_user.jobs.empty? %>
+          <%= link_to "Resume Analysis", dashboard_index_path(notice: "send") %>
+        <% else %>
+          <%= link_to "Resume Analysis", resume_job_path(resume: current_user.resumes.first.id, id: current_user.jobs.first.id) %>
+        <% end %>
       </li>
       <li>
         <%= link_to "Cover Letter Analysis", "#" %>
