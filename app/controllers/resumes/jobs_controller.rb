@@ -6,6 +6,7 @@ class Resumes::JobsController < ApplicationController
     @job = current_user.jobs.find(params[:id])
     @resume = current_user.resumes.find(params[:resume])
     @keywords = EntityComparisonService.compare(@job, @resume)
+    @percentage = EntityComparisonService.percentage(@job, @resume)
   end
 
 end
