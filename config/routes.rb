@@ -12,4 +12,8 @@ Rails.application.routes.draw do
   resources :cover_letters, only: [:create]
   resources :jobs, only: [:create]
 
-9end
+  namespace :resumes, as: :resume, path: "resumes/:resume" do
+    resources :jobs, only: [:show]
+  end
+
+end
