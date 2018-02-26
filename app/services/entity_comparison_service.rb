@@ -9,7 +9,9 @@ class EntityComparisonService
     document = document_entities.sort_by do |entity|
       entity.magnitude * entity.salience
     end.reverse
-    job.reject {|x| document.include? x.entity}
+    job_words = job.map do |word|
+      word.entity
+    end
   end
 
 end

@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180224035707) do
+ActiveRecord::Schema.define(version: 20180226154404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "citext"
 
   create_table "cover_letter_entities", force: :cascade do |t|
     t.bigint "cover_letter_id"
-    t.string "entity"
+    t.citext "entity"
     t.decimal "salience"
     t.decimal "magnitude"
     t.decimal "score"
@@ -29,7 +30,7 @@ ActiveRecord::Schema.define(version: 20180224035707) do
   create_table "cover_letters", force: :cascade do |t|
     t.bigint "user_id"
     t.string "name"
-    t.text "body"
+    t.citext "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_cover_letters_on_user_id"
@@ -37,7 +38,7 @@ ActiveRecord::Schema.define(version: 20180224035707) do
 
   create_table "job_entities", force: :cascade do |t|
     t.bigint "job_id"
-    t.string "entity"
+    t.citext "entity"
     t.decimal "salience"
     t.decimal "magnitude"
     t.string "wikipedia"
@@ -50,7 +51,7 @@ ActiveRecord::Schema.define(version: 20180224035707) do
     t.bigint "user_id"
     t.string "company_name"
     t.string "job_title"
-    t.text "description"
+    t.citext "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_jobs_on_user_id"
@@ -58,7 +59,7 @@ ActiveRecord::Schema.define(version: 20180224035707) do
 
   create_table "resume_entities", force: :cascade do |t|
     t.bigint "resume_id"
-    t.string "entity"
+    t.citext "entity"
     t.decimal "salience"
     t.decimal "magnitude"
     t.datetime "created_at", null: false
@@ -68,7 +69,7 @@ ActiveRecord::Schema.define(version: 20180224035707) do
 
   create_table "resumes", force: :cascade do |t|
     t.bigint "user_id"
-    t.text "body"
+    t.citext "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
