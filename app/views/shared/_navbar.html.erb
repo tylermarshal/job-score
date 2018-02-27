@@ -27,14 +27,14 @@
         <% if current_user.resumes.empty? || current_user.jobs.empty? %>
           <%= link_to "Resume Analysis", dashboard_index_path(notice: "resume") %>
         <% else %>
-          <%= link_to "Resume Analysis", resume_job_path(resume: current_user.resumes.first.id, id: current_user.jobs.first.id) %>
+          <%= link_to "Resume Analysis", resume_analysis_path %>
         <% end %>
       </li>
       <li>
         <% if current_user.cover_letters.empty? || current_user.jobs.empty? %>
           <%= link_to "Cover Letter Analysis", dashboard_index_path(notice: "cover_letter") %>
         <% else %>
-          <%= link_to "Cover Letter Analysis", cover_letter_job_path(cover_letter: current_user.cover_letters.first.id, id: current_user.jobs.first.id) %>
+          <%= link_to "Cover Letter Analysis", cover_letter_analysis_path %>
         <% end %>
       </li>
       <li>

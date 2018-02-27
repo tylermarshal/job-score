@@ -1,4 +1,4 @@
-<%= form_for :resume_jobs, :url => resume_job_path do |f| %>
+<%= form_for :resume_job, method: :get do |f| %>
   <%= f.collection_select(:name, @user_resumes, :name, :id)  %>
   <%= f.collection_select(:job_title, @user_jobs, :job_title, :id)  %>
   <%= f.submit %>
