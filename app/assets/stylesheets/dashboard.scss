@@ -1,5 +1,25 @@
 @import "base";
 
+.dashboard-container {
+  width: 60%;
+  margin: 15px 0 0 0;
+}
+
+.heading-box {
+  padding: 20px;
+  border-radius: 10px 10px 0 0;
+  padding: 15px 30px 10px 30px;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+  border: 1px solid #257C9E;
+  background: #2A88AD;
+  font: normal 15px 'Bitter', serif;
+  h1 {
+    font-size: 22px;
+  }
+}
+
 .form-display-buttons {
   width: 60%;
   display: flex;
@@ -8,8 +28,7 @@
 .left-button {
   width: 50%;
   padding:20px;
-  margin: 20px auto;
-  border-radius: 10px 0 0 10px;
+  border-radius: 0 0 0 10px;
   padding: 15px 30px 10px 30px;
   color: #fff;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
@@ -22,8 +41,7 @@
 .right-button {
   width: 50%;
   padding:20px;
-  margin: 20px auto;
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 0 10px 0;
   padding: 15px 30px 10px 30px;
   color: #fff;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
