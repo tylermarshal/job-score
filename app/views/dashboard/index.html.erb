@@ -1,72 +1,105 @@
 <h1>Your Dashboard</h1>
 <p>Upload up to three resumes, cover letters, and job descriptions.</p>
 
-<div>
-  <a href="#" class="paste">Paste a Resume</a>
-  <div class="inactive">
-    <%= form_for @resume, :url => {:controller => :resumes, :action => "create"}  do |f| %>
-    <%= f.text_field :name, placeholder: "Resume Name" %>
-
-    <%= f.text_field :body, placeholder: "Paste Resume Here" %>
-
-    <%= f.submit "Add Resume" %>
-    <% end %>
+<div class="flex-center">
+  <div class="form-display-buttons">
+    <h2 class="left-button button-activated">Add Files</h2>
+    <h2 class="right-button button-deactivated">View Existing Files</h2>
   </div>
 </div>
-<input type="file" accept="image/*" capture="camera">
 
-<% if !current_user.resumes.empty? %>
+<div class="add-files-wrapper">
+
+  <div class="form-style">
+    <h3 class="paste form-head">Add a New Resume</h3>
+    <div class="inactive">
+      <%= form_for @resume, :url => {:controller => :resumes, :action => "create"}  do |f| %>
+      <div class="section"><span>1</span>Paste, Upload, or Take a Picture of Your Resume</div>
+      <div class="inner-wrap">
+        <%= f.text_field :name, placeholder: "Resume Name" %>
+
+        <%= f.text_area :body, placeholder: "Paste Resume Here" %>
+      </div>
+
+      <%= f.submit "Add Resume" %>
+      <% end %>
+      <input type="file" accept="image/*" capture="camera">
+    </div>
+  </div>
+
+
+  <div class="form-style">
+    <h3 class="paste form-head">Add a New Cover Letter</h3>
+    <div class="inactive">
+      <%= form_for @cover_letter, :url => {:controller => :cover_letters, :action => "create"}  do |f| %>
+      <div class="section"><span>2</span>Paste, Upload or Take a Picture of Your Cover Letter</div>
+      <div class="inner-wrap">
+        <%= f.text_field :name, placeholder: "Name Your Cover letter Here" %>
+
+        <%= f.text_area :body, placeholder: "Paste Your Cover Letter Here (Exclude Address)" %>
+      </div>
+
+      <%= f.submit "Add Cover Letter" %>
+      <% end %>
+      <input type="file" accept="image/*" capture="camera">
+    </div>
+  </div>
+
+
+  <div class="form-style">
+    <h3 class="paste form-head">Add a New Job Description</h3>
+    <div class="inactive">
+      <%= form_for @job, :url => {:controller => :jobs, :action => "create"}  do |f| %>
+      <div class="section"><span>3</span>Paste, Upload, or Take a Picture of the Job Description</div>
+      <div class="inner-wrap">
+        <%= f.text_field :company_name, placeholder: "Company Name" %>
+
+        <%= f.text_field :job_title, placeholder: "Job Title" %>
+
+        <%= f.text_area :description, placeholder: "Paste Job Description Here" %>
+      </div>
+
+      <%= f.submit "Add Job" %>
+      <% end %>
+      <input type="file" accept="image/*" capture="camera">
+    </div>
+  </div>
+
+</div>
+
+<div class="view-existing-files-wrapper inactive-full-width">
+  
   <div>
     <h3>Your Resumes</h3>
+    <% if current_user.resumes.empty? %>
+    <p>You do not have any added resumes.</p>
+    <% else %>
     <% current_user.resumes.each do |resume| %>
     <%= resume.name %>
     <% end %>
   </div>
-<% end %>
+  <% end %>
 
-<div>
-  <a href="#" class="paste">Paste a Cover Letter</a>
-  <div class="inactive">
-    <%= form_for @cover_letter, :url => {:controller => :cover_letters, :action => "create"}  do |f| %>
-    <%= f.text_field :name, placeholder: "Cover Letter Name" %>
-
-    <%= f.text_field :body, placeholder: "Paste Cover Letter Here" %>
-
-    <%= f.submit "Add Cover Letter" %>
-    <% end %>
-  </div>
-</div>
-<input type="file" accept="image/*" capture="camera">
-
-<% if !current_user.cover_letters.empty? %>
   <div>
     <h3>Your Cover Letters</h3>
+    <% if current_user.cover_letters.empty? %>
+    <p>You do not have any added cover letters.</p>
+    <% else %>
     <% current_user.cover_letters.each do |cover_letter| %>
-      <%= cover_letter.name %>
+    <%= cover_letter.name %>
     <% end %>
   </div>
-<% end %>
+  <% end %>
 
-<div>
-  <a href="#" class="paste">Paste a Job Description</a>
-  <div class="inactive">
-    <%= form_for @job, :url => {:controller => :jobs, :action => "create"}  do |f| %>
-    <%= f.text_field :company_name, placeholder: "Company Name" %>
-    <%= f.text_field :job_title, placeholder: "Job Title" %>
-
-    <%= f.text_field :description, placeholder: "Paste Job Description Here" %>
-
-    <%= f.submit "Add Job" %>
-    <% end %>
-  </div>
-</div>
-<input type="file" accept="image/*" capture="camera">
-
-<% if !current_user.jobs.empty? %>
   <div>
     <h3>Your Jobs</h3>
+    <% if current_user.jobs.empty? %>
+    <p>You do not have any added jobs.</p>
+    <% else %>
     <% current_user.jobs.each do |job| %>
-      <%= job.company_name %>: <%= job.job_title %>
+    <%= job.company_name %>: <%= job.job_title %>
     <% end %>
   </div>
-<% end %>
+  <% end %>
+
+</div>

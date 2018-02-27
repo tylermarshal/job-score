@@ -1,9 +1,19 @@
 @import "base";
 
 body {
+  background: $accent-color;
+}
+
+header {
   background: $primary-color;
+  padding-bottom: 20px;
 }
 
 .inactive {
   display: none;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
 }
