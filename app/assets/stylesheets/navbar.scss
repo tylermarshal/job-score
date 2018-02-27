@@ -1,7 +1,7 @@
 @import "base";
 
 nav {
-  margin: 25px 0 25px 0;
+  margin: 0 0 15px 0;
   color: $accent-color;
   font-family: sans-serif;
   ul {
@@ -46,8 +46,18 @@ nav {
   margin:0px auto;
 }
 
-.score {
-  color: $secondary-color;
+.brand {
+  font-size: 2.5em;
+  margin: 15px 0 0 0;
+  span{
+    color: $secondary-color;
+  }
+}
+
+.logo {
+  width: 90px;
+  height: auto;
+  margin: 5px 5px 0 5px;;
 }
 
 @media (max-width: 48em) {
@@ -70,23 +80,9 @@ nav {
     display: none
   }
 
-  .brand {
-    font-size: 3em;
-    margin: 5% 0 0 0;
-  }
-
-  .logo {
-    width: 80%;
-    height: auto;
-  }
 }
 
 @media (min-width: 48em) {
-
-  .brand {
-    font-size: 4em;
-    margin: 5% 0 0 0;
-  }
 
   .toggle {
     display: none;
