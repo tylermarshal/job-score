@@ -27,3 +27,5 @@
 /config/application.yml
 
 config/My*
+
+config/newrelic*
