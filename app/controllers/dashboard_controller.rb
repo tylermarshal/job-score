@@ -1,10 +1,12 @@
 class DashboardController < ApplicationController
 
   def index
-    if params[:notice]
-      flash.notice = "You must add at least one resume and one job to complete a resume analysis."
-    end
     if logged_in?
+      if params[:notice] == "resume"
+        flash.notice = "Please add at least one resume and one job to complete a resume analysis."
+      elsif params[:notice] == "cover_letter"
+        flash.notice = "Please add at least one cover letter and one job to complete a cover letter analysis."
+      end
       @resume = Resume.new
       @cover_letter = CoverLetter.new
       @job = Job.new
