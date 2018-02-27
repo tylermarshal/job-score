@@ -74,37 +74,41 @@
 
 <div class="view-existing-files-wrapper inactive-full-width">
 
-  <div>
-    <h3>Your Resumes</h3>
+  <div class="form-style">
+    <h3 class="form-head">Your Resumes</h3>
     <% if current_user.resumes.empty? %>
-    <p>You do not have any added resumes.</p>
+      <p>You do not have any added resumes.</p>
     <% else %>
-    <% current_user.resumes.each do |resume| %>
-    <%= resume.name %>
+      <% current_user.resumes.each do |resume| %>
+        <%= resume.name %>
+      <% end %>
     <% end %>
   </div>
-  <% end %>
 
-  <div>
-    <h3>Your Cover Letters</h3>
+  <div class="form-style">
+    <h3 class="form-head">Your Cover Letters</h3>
     <% if current_user.cover_letters.empty? %>
-    <p>You do not have any added cover letters.</p>
+      <p>You do not have any added cover letters.</p>
     <% else %>
-    <% current_user.cover_letters.each do |cover_letter| %>
-    <%= cover_letter.name %>
+      <% current_user.cover_letters.each do |cover_letter| %>
+        <%= cover_letter.name %>
+      <% end %>
     <% end %>
   </div>
-  <% end %>
 
-  <div>
-    <h3>Your Jobs</h3>
+  <div class="form-style">
+    <h3 class="form-head">Your Jobs</h3>
     <% if current_user.jobs.empty? %>
-    <p>You do not have any added jobs.</p>
+      <p>You do not have any added jobs.</p>
     <% else %>
-    <% current_user.jobs.each do |job| %>
-    <%= job.company_name %>: <%= job.job_title %>
+    <ul>
+      <li>
+        <% current_user.jobs.each do |job| %>
+        <%= job.company_name %>: <%= job.job_title %>
+        <% end %>
+      </li>
+    </ul>
     <% end %>
   </div>
-  <% end %>
 
 </div>
