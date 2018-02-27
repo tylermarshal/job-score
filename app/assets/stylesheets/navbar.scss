@@ -5,6 +5,7 @@ nav {
   color: $accent-color;
   font-family: sans-serif;
   ul {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
     list-style: none;
   }
   a {
@@ -43,7 +44,7 @@ nav {
 .hamburger-navbar-border, .full-navbar-border {
   border-bottom: 2px solid $accent-color;
   width: 85%;
-  margin:0px auto;
+  margin: 0px auto;
 }
 
 .brand {
