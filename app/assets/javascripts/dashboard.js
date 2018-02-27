@@ -8,8 +8,8 @@ $(document).ready(function() {
     $('.left-button').removeClass("button-deactivated");
     $('.right-button').addClass("button-deactivated");
     $('.right-button').removeClass("button-activated");
-    $('.add-files-wrapper').toggleClass("inactive-full-width");
-    $('.view-existing-files-wrapper').toggleClass("inactive-full-width");
+    $('.add-files-wrapper').removeClass("inactive-full-width");
+    $('.view-existing-files-wrapper').addClass("inactive-full-width");
   })
 
   $('.right-button').click(function(event) {
@@ -17,7 +17,7 @@ $(document).ready(function() {
     $('.right-button').removeClass("button-deactivated");
     $('.left-button').addClass("button-deactivated");
     $('.left-button').removeClass("button-activated");
-    $('.add-files-wrapper').toggleClass("inactive-full-width");
-    $('.view-existing-files-wrapper').toggleClass("inactive-full-width");
+    $('.add-files-wrapper').addClass("inactive-full-width");
+    $('.view-existing-files-wrapper').removeClass("inactive-full-width");
   })
 })

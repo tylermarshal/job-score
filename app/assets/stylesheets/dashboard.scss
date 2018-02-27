@@ -1,9 +1,10 @@
 @import "base";
 
 .form-display-buttons {
-  width: 80%;
+  width: 60%;
   display: flex;
 }
+
 .left-button {
   width: 50%;
   padding:20px;
@@ -14,6 +15,8 @@
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
   box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
   border: 1px solid #257C9E;
+  font: normal 15px 'Bitter', serif;
+  text-align: center;
 }
 
 .right-button {
@@ -26,6 +29,8 @@
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
   box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
   border: 1px solid #257C9E;
+  font: normal 15px 'Bitter', serif;
+  text-align: center;
 }
 
 .button-activated {
@@ -64,8 +69,8 @@
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
     box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
     border: 1px solid #257C9E;
+    font: normal 18px 'Bitter', serif;
 }
-
 
 .form-style input[type="text"],
 .form-style textarea{
@@ -85,6 +90,7 @@
 .form-style .section{
     color: #2A88AD;
     margin-bottom: 5px;
+    font: normal 15px 'Bitter', serif;
 }
 
 .form-style .section span {
@@ -106,7 +112,7 @@
     color: #fff;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
     border: 1px solid #257C9E;
-    font-size: 15px;
+    font: normal 15px 'Bitter', serif;
 }
 
 .form-style input[type="submit"]:hover {
