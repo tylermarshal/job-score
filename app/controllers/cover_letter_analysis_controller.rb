@@ -1,4 +1,4 @@
-class CoverLettersAnalysisController < ApplicationController
+class CoverLetterAnalysisController < ApplicationController
 
   def show
     @user_jobs = current_user.jobs
