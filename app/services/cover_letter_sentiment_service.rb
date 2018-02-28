@@ -1,4 +1,4 @@
-class CoverLetterEntityService
+class CoverLetterSentimentService
 
   def self.generate(cover_letter)
     sentences = GoogleSentimentService.analyze(cover_letter.body)
