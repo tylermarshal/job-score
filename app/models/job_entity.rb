@@ -6,4 +6,5 @@ class JobEntity < ApplicationRecord
   def calculate_multiplier
     self.multiplier = salience * magnitude
   end
+
 end
