@@ -1,7 +1,7 @@
 class ResumeEntityService
 
   def generate(resume)
-    entities = GoogleNaturalLanguageService.analyze(resume.body)
+    entities = GoogleEntitySentimentService.analyze(resume.body)
     entities.each do |entity|
       if entity.salience != 0.0 && entity.sentiment.magnitude != 0.0
           resume.resume_entities.create!(

@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-describe GoogleNaturalLanguageService do
+describe GoogleEntitySentimentService do
 
   describe "analyze" do
     it "finds all entities" do
       # VCR.use_cassette("services/find_entities") do
         text = "As a customer-obsessed professional with a passion for the healthcare industry, I was thrilled to learn that Health First Medical Clinic needs a Customer Service Manager. Presently, I am a Senior Customer Service Representative with six years of experience. I am registered with the California State Board of Pharmacy and have a B.A. in Management from Golden Gate University in San Francisco."
 
-        entities = GoogleNaturalLanguageService.analyze(text)
+        entities = GoogleEntitySentimentService.analyze(text)
         entity = entities.first
 
         expect(entities.count).to eq(12)
