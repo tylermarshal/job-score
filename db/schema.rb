@@ -10,11 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180227231033) do
+ActiveRecord::Schema.define(version: 20180228190309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "citext"
+
+  create_table "cover_letter_document_tones", force: :cascade do |t|
+    t.bigint "cover_letter_id"
+    t.decimal "score"
+    t.string "tone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cover_letter_id"], name: "index_cover_letter_document_tones_on_cover_letter_id"
+  end
 
   create_table "cover_letter_entities", force: :cascade do |t|
     t.bigint "cover_letter_id"
@@ -25,6 +34,16 @@ ActiveRecord::Schema.define(version: 20180227231033) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cover_letter_id"], name: "index_cover_letter_entities_on_cover_letter_id"
+  end
+
+  create_table "cover_letter_sentence_tones", force: :cascade do |t|
+    t.bigint "cover_letter_id"
+    t.text "sentence"
+    t.decimal "score"
+    t.string "tone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cover_letter_id"], name: "index_cover_letter_sentence_tones_on_cover_letter_id"
   end
 
   create_table "cover_letter_sentiments", force: :cascade do |t|
@@ -100,7 +119,9 @@ ActiveRecord::Schema.define(version: 20180227231033) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "cover_letter_document_tones", "cover_letters"
   add_foreign_key "cover_letter_entities", "cover_letters"
+  add_foreign_key "cover_letter_sentence_tones", "cover_letters"
   add_foreign_key "cover_letter_sentiments", "cover_letters"
   add_foreign_key "cover_letters", "users"
   add_foreign_key "job_entities", "jobs"
