@@ -16,6 +16,10 @@ class JobsController < ApplicationController
     def job_params
       if params[:image]
         params[:description] = GoogleVisionService.analyze(params[:image]).text
+      elsif params[:job][:description]
+        params[:description] = params[:job][:description].gsub!(/([^\r\n])\r\n([^\r\n])/, '\1 \2')
+        params[:company_name] = params[:job][:company_name]
+        params[:job_title] = params[:job][:job_title]
       end
       params.permit(:company_name, :job_title, :description)
     end
