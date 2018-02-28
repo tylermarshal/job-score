@@ -58,6 +58,7 @@ GEM
       xpath (>= 2.0, < 4.0)
     case_transform (0.2)
       activesupport
+    chartkick (2.3.2)
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -289,6 +290,7 @@ DEPENDENCIES
   active_model_serializers (~> 0.10.0)
   byebug
   capybara
+  chartkick
   coffee-rails (~> 4.2)
   database_cleaner
   factory_bot_rails
