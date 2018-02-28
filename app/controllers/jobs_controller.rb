@@ -14,7 +14,10 @@ class JobsController < ApplicationController
   private
 
     def job_params
-      params.require(:job).permit(:company_name, :job_title, :description)
+      if params[:image]
+        params[:description] = GoogleVisionService.analyze(params[:image]).text
+      end
+      params.permit(:company_name, :job_title, :description)
     end
 
 end
