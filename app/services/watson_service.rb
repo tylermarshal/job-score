@@ -1,9 +1,11 @@
-class WatsonToneService
+require 'uri'
+
+class WatsonService
 
   attr_reader :text
 
   def initialize(text)
-    @text = text
+    @text = URI::encode(text)
   end
 
   def conn
@@ -18,7 +20,7 @@ class WatsonToneService
   end
 
   def parse
-    JSON.parse(response.body)
+    JSON.parse(response.body, symbolize_names: true)
   end
 
 end
