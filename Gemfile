@@ -23,6 +23,7 @@ gem 'google-cloud-language'
 gem 'google-cloud-vision'
 gem 'newrelic_rpm'
 gem 'redis-rails'
+gem 'sidekiq'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
