@@ -20,4 +20,22 @@ $(document).ready(function() {
     $('.add-files-wrapper').addClass("inactive-full-width");
     $('.view-existing-files-wrapper').removeClass("inactive-full-width");
   })
+
+  $('.paste-button').click(function(event) {
+    $(this).addClass("button-activated");
+    $(this).removeClass("button-deactivated");
+    $(this).next().addClass("button-deactivated");
+    $(this).next().removeClass("button-activated");
+    $(this).parent().parent().find(".paste-wrapper").removeClass("inactive-full-width");
+    $(this).parent().parent().find(".image-wrapper").addClass("inactive-full-width");
+  })
+
+  $('.image-button').click(function(event) {
+    $(this).addClass("button-activated");
+    $(this).removeClass("button-deactivated");
+    $(this).prev().addClass("button-deactivated");
+    $(this).prev().removeClass("button-activated");
+    $(this).parent().parent().find(".paste-wrapper").addClass("inactive-full-width");
+    $(this).parent().parent().find(".image-wrapper").removeClass("inactive-full-width");
+  })
 })
