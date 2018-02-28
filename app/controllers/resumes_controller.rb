@@ -14,7 +14,10 @@ class ResumesController < ApplicationController
   private
 
     def resume_params
-      params.require(:resume).permit(:name, :body)
+      if params[:image]
+        params[:body] = GoogleVisionService.analyze(params[:image]).text
+      end
+      params.permit(:name, :body)
     end
 
 end
