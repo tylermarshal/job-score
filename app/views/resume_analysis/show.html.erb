@@ -1,23 +1,26 @@
-<%= form_for :resume_job, method: :get do |f| %>
-  <%= f.collection_select(:name, @user_resumes, :name, :id)  %>
-  <%= f.collection_select(:job_title, @user_jobs, :job_title, :id)  %>
-  <%= f.submit %>
+<%= form_tag :resume_analysis, method: :get do %>
+  <%= label_tag "Resume" %>
+  <%= select_tag "resume", options_from_collection_for_select(@user_resumes, "id", "name", params[:resume].to_i) %>
+
+  <%= label_tag "job" %>
+  <%= select_tag "id", options_from_collection_for_select(@user_jobs, "id", "full_title", params[:id].to_i) %>
+
+  <%= submit_tag "View Analysis" %>
 <% end %>
 
 <h3>Keywords</h3>
 <p>Below is a list of keywords you may want to consider adding to your resume, in order to better match better with the job description:</p>
 
 <ul>
-
-<% @keywords.each do |keyword| %>
-  <% if keyword.wikipedia.nil? %>
-    <li>
-      <%= keyword.entity.downcase %>
-    </li>
-  <% else %>
-    <li>
-      <%= link_to keyword.entity.downcase, keyword.wikipedia %>
-    </li>
+  <% @keywords.each do |keyword| %>
+    <% if keyword.wikipedia.nil? %>
+      <li>
+        <%= keyword.entity.downcase %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to keyword.entity.downcase, keyword.wikipedia %>
+      </li>
+    <% end %>
   <% end %>
-<% end %>
 </ul>
