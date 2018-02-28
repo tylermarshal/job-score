@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>JobScore: We score jobs, so you can score a job.</title>
+    <title>JobScore: Resume & cover letter analysis, so you can score a job.</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
     <%= favicon_link_tag("score-arrow-xs") %>
   </head>
 
@@ -14,12 +17,12 @@
   </header>
   <body>
 
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, raw(msg), class: name %>
-    <% end %>
+  <% flash.each do |name, msg| %>
+  <%= content_tag :div, raw(msg) %>
+  <% end %>
 
-    <%= yield %>
+  <%= yield %>
 
-    <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'application' %>
   </body>
 </html>
