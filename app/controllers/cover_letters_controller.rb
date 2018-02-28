@@ -18,6 +18,9 @@ class CoverLettersController < ApplicationController
     def cover_letter_params
       if params[:image]
         params[:body] = GoogleVisionService.analyze(params[:image]).text
+      elsif params[:cover_letter][:body]
+        params[:body] = params[:cover_letter][:body].gsub!(/([^\r\n])\r\n([^\r\n])/, '\1 \2')
+        params[:name] = params[:cover_letter][:name]
       end
       params.permit(:name, :body)
     end
