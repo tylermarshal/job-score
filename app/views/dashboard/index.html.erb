@@ -18,17 +18,32 @@
   <div class="form-style">
     <h3 class="paste form-head">Add a New Resume</h3>
     <div class="inactive">
-      <%= form_for @resume, :url => {:controller => :resumes, :action => "create"}  do |f| %>
-      <div class="section"><span>1</span>Paste, Upload, or Take a Picture of Your Resume</div>
-      <div class="inner-wrap">
-        <%= f.text_field :name, placeholder: "Resume Name" %>
+      <div class="section"><span>1</span>Paste Text or Add a Photo of Your Resume</div>
+      <div class="form-display-buttons">
+        <h2 class="paste-button button-activated">Paste Text</h2>
+        <h2 class="image-button button-deactivated">Add a Photo</h2>
+      </div>
+      <div class="paste-wrapper">
+        <%= form_for @resume, :url => {:controller => :resumes, :action => "create"}  do |f| %>
+        <div class="inner-wrap">
+          <%= f.text_field :name, placeholder: "Resume Name" %>
 
-        <%= f.text_area :body, placeholder: "Paste Resume Here" %>
+          <%= f.text_area :body, placeholder: "Paste Resume Here" %>
+        </div>
+
+        <%= f.submit "Add Resume" %>
+        <% end %>
       </div>
 
-      <%= f.submit "Add Resume" %>
-      <% end %>
-      <input type="file" accept="image/*" capture="camera">
+      <div class="image-wrapper inactive-full-width">
+        <%= form_tag :resumes, method: :post, action: "upload", multipart: true do %>
+        <div class="inner-wrap">
+          <%= text_field_tag :name, "", placeholder: "Resume Name"   %>
+        </div>
+          <%= file_field_tag :image, accept: 'image/*', capture: "camera"  %>
+          <%= submit_tag "Add Resume" %>
+        <% end %>
+      </div>
     </div>
   </div>
 
@@ -36,17 +51,33 @@
   <div class="form-style">
     <h3 class="paste form-head">Add a New Cover Letter</h3>
     <div class="inactive">
-      <%= form_for @cover_letter, :url => {:controller => :cover_letters, :action => "create"}  do |f| %>
-      <div class="section"><span>2</span>Paste, Upload or Take a Picture of Your Cover Letter</div>
-      <div class="inner-wrap">
-        <%= f.text_field :name, placeholder: "Name Your Cover letter Here" %>
+      <div class="section"><span>2</span>Paste Text or Add a Photo of Your Cover Letter</div>
+      <div class="form-display-buttons">
+        <h2 class="paste-button button-activated">Paste Text</h2>
+        <h2 class="image-button button-deactivated">Add a Photo</h2>
+      </div>
+      <div class="paste-wrapper">
+        <%= form_for @cover_letter, :url => {:controller => :cover_letters, :action => "create"}  do |f| %>
+        <div class="inner-wrap">
+          <%= f.text_field :name, placeholder: "Name Your Cover letter Here" %>
 
-        <%= f.text_area :body, placeholder: "Paste Your Cover Letter Here (Exclude Address)" %>
+          <%= f.text_area :body, placeholder: "Paste Your Cover Letter Here (Exclude Address)" %>
+        </div>
+
+        <%= f.submit "Add Cover Letter" %>
+        <% end %>
       </div>
 
-      <%= f.submit "Add Cover Letter" %>
-      <% end %>
-      <input type="file" accept="image/*" capture="camera">
+      <div class="image-wrapper inactive-full-width">
+        <%= form_tag :cover_letters, method: :post, action: "upload", multipart: true do %>
+        <div class="inner-wrap">
+          <%= text_field_tag :name, "", placeholder: "Cover Letter Name"   %>
+        </div>
+          <%= file_field_tag :image, accept: 'image/*', capture: "camera"  %>
+
+          <%= submit_tag "Add Cover Letter" %>
+        <% end %>
+      </div>
     </div>
   </div>
 
@@ -54,19 +85,37 @@
   <div class="form-style">
     <h3 class="paste form-head">Add a New Job Description</h3>
     <div class="inactive">
-      <%= form_for @job, :url => {:controller => :jobs, :action => "create"}  do |f| %>
-      <div class="section"><span>3</span>Paste, Upload, or Take a Picture of the Job Description</div>
-      <div class="inner-wrap">
-        <%= f.text_field :company_name, placeholder: "Company Name" %>
+      <div class="section"><span>3</span>Paste Text or Add a Photo of the Job Description</div>
+      <div class="form-display-buttons">
+        <h2 class="paste-button button-activated">Paste Text</h2>
+        <h2 class="image-button button-deactivated">Add a Photo</h2>
+      </div>
+      <div class="paste-wrapper">
+        <%= form_for @job, :url => {:controller => :jobs, :action => "create"}  do |f| %>
+        <div class="inner-wrap">
+          <%= f.text_field :company_name, placeholder: "Company Name" %>
 
-        <%= f.text_field :job_title, placeholder: "Job Title" %>
+          <%= f.text_field :job_title, placeholder: "Job Title" %>
 
-        <%= f.text_area :description, placeholder: "Paste Job Description Here" %>
+          <%= f.text_area :description, placeholder: "Paste Job Description Here" %>
+        </div>
+
+        <%= f.submit "Add Job" %>
+        <% end %>
       </div>
 
-      <%= f.submit "Add Job" %>
-      <% end %>
-      <input type="file" accept="image/*" capture="camera">
+      <div class="image-wrapper inactive-full-width">
+        <%= form_tag :jobs, method: :post, action: "upload", multipart: true do %>
+        <div class="inner-wrap">
+          <%= text_field_tag :company_name, "", placeholder: "Company Name"   %>
+
+          <%= text_field_tag :job_title, "", placeholder: "Job Title"   %>
+        </div>
+        <%= file_field_tag :image, accept: 'image/*', capture: "camera"  %>
+
+        <%= submit_tag "Add Job" %>
+        <% end %>
+      </div>
     </div>
   </div>
 
