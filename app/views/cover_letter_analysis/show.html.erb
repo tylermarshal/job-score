@@ -1,0 +1,126 @@
+<%= form_tag :cover_letter_analysis, method: :get do %>
+  <%= label_tag "Cover Letter" %>
+  <%= select_tag "cover_letter", options_from_collection_for_select(@user_cover_letters, "id", "name", params[:cover_letter].to_i) %>
+
+  <%= label_tag "Job" %>
+  <%= select_tag "id", options_from_collection_for_select(@user_jobs, "id", "full_title", params[:id].to_i) %>
+
+  <%= submit_tag "View Analysis" %>
+<% end %>
+
+
+<h3>Overall Tone</h3>
+<% @cover_letter.cover_letter_document_tones.each do |tone| %>
+  <%= pie_chart tone.score %>
+<% end %>
+
+<% unless @cover_letter.cover_letter_sentence_tones.confident.empty? %>
+<div class="form-style">
+  <h3 class="form-head">Confident</h3>
+    <div class="inactive">
+      <div class="section">Parts of your cover letter that display confidence</div>
+      <% @cover_letter.cover_letter_sentence_tones.confident.each do |sentence| %>
+        <%= sentence.sentence %>
+        <%= sentence.score %>
+      <% end %>
+    </div>
+</div>
+<% end %>
+
+<% unless @cover_letter.cover_letter_sentence_tones.joy.empty? %>
+<div class="form-style">
+  <h3 class="form-head">Joy</h3>
+    <div class="inactive">
+      <div class="section">Parts of your cover letter that display joy</div>
+      <% @cover_letter.cover_letter_sentence_tones.joy.each do |sentence| %>
+        <%= sentence.sentence %>
+        <%= sentence.score %>
+      <% end %>
+    </div>
+</div>
+<% end %>
+
+<% unless @cover_letter.cover_letter_sentence_tones.analytical.empty? %>
+<div class="form-style">
+  <h3 class="form-head">Analytical</h3>
+    <div class="inactive">
+      <div class="section">Parts of your cover letter that are analytical</div>
+      <% @cover_letter.cover_letter_sentence_tones.analytical.each do |sentence| %>
+        <%= sentence.sentence %>
+        <%= sentence.score %>
+      <% end %>
+    </div>
+</div>
+<% end %>
+
+<% unless @cover_letter.cover_letter_sentence_tones.tentative.empty? %>
+<div class="form-style">
+  <h3 class="form-head">Tenative</h3>
+    <div class="inactive">
+      <div class="section">Parts of your cover letter that display tentativeness</div>
+      <% @cover_letter.cover_letter_sentence_tones.tentative.each do |sentence| %>
+        <%= sentence.sentence %>
+        <%= sentence.score %>
+      <% end %>
+    </div>
+</div>
+<% end %>
+
+<% unless @cover_letter.cover_letter_sentence_tones.sadness.empty? %>
+<div class="form-style">
+  <h3 class="form-head">Sadness</h3>
+    <div class="inactive">
+      <div class="section">Parts of your cover letter that display sadness</div>
+      <% @cover_letter.cover_letter_sentence_tones.sadness.each do |sentence| %>
+        <%= sentence.sentence %>
+        <%= sentence.score %>
+      <% end %>
+    </div>
+</div>
+<% end %>
+
+<% unless @cover_letter.cover_letter_sentence_tones.anger.empty? %>
+<div class="form-style">
+  <h3 class="form-head">Anger</h3>
+    <div class="inactive">
+      <div class="section">Parts of your cover letter that display anger</div>
+      <% @cover_letter.cover_letter_sentence_tones.anger.each do |sentence| %>
+        <%= sentence.sentence %>
+        <%= sentence.score %>
+      <% end %>
+    </div>
+</div>
+<% end %>
+
+<% unless @cover_letter.cover_letter_sentence_tones.fear.empty? %>
+<div class="form-style">
+  <h3 class="form-head">Fear</h3>
+    <div class="inactive">
+      <div class="section">Parts of your cover letter that display fear</div>
+      <% @cover_letter.cover_letter_sentence_tones.fear.each do |sentence| %>
+        <%= sentence.sentence %>
+        <%= sentence.score %>
+      <% end %>
+    </div>
+</div>
+<% end %>
+
+<div class="form-style">
+  <h3 class="form-head">Keywords</h3>
+    <div class="inactive">
+      <div class="section">Keywords you may want to consider adding to your cover letter, in order to better match better with the job description</div>
+        <ul>
+          <% @keywords.each do |keyword| %>
+            <% if keyword.wikipedia.nil? %>
+              <li>
+                <%= keyword.entity.downcase %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to keyword.entity.downcase, keyword.wikipedia %>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+    </div>
+</div>
