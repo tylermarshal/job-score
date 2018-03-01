@@ -175,17 +175,21 @@
 <div class="form-style">
   <h3 class="form-head">Keywords</h3>
       <div class="section">To better match the job description, you should consider adding these keywords</div>
-        <ul>
-          <% @keywords.each do |keyword| %>
-            <% if keyword.wikipedia.nil? %>
-              <li>
-                <%= keyword.entity.downcase %>
-              </li>
-            <% else %>
-              <li>
-                <%= link_to keyword.entity.downcase, keyword.wikipedia %>
-              </li>
+        <div class="columns">
+          <% @keywords.each_slice(@keywords.count/3) do |slice| %>
+            <div class="column">
+              <% slice.each do |entity| %>
+              <% if entity.wikipedia.nil? %>
+                <div>
+                  <%= entity.entity.capitalize %>
+                </div>
+              <% else %>
+                <div>
+                  <%= link_to entity.entity.capitalize, entity.wikipedia %>
+                </div>
+              <% end %>
             <% end %>
+            </div>
           <% end %>
-        </ul>
+        </div>
 </div>
