@@ -1,0 +1,16 @@
+.sentence-group {
+  display: flex;
+  flex-direction: column;
+  list-style-type: circle;
+}
+
+.sentence-info {
+  display: flex;
+  margin: 10px 0 0 10px;
+}
+
+.score {
+  margin-left: 5px;
+  color: #2A88AD;
+  font: normal 15px 'Bitter', serif;
+}
