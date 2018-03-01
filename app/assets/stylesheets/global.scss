@@ -30,6 +30,7 @@ header {
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
   border: 1px solid #257C9E;
   font: normal 15px 'Bitter', serif;
+  margin-left: 10px;
 }
 
 h1 {
@@ -64,4 +65,8 @@ h1 {
     color: #2A88AD;
     font: normal 25px 'Bitter', serif;
   }
+}
+
+a {
+  text-decoration: none;
 }

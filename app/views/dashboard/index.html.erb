@@ -138,7 +138,7 @@
       <% current_user.resumes.each do |resume| %>
       <div class="document">
         <%= resume.name %>
-        <%= link_to "Delete", resume_path(resume), method: :delete %>
+        <%= link_to "Delete", resume_path(resume), method: :delete, class: "select-option-button" %>
       </div>
       <% end %>
     </div>
@@ -150,10 +150,14 @@
     <% if current_user.cover_letters.empty? %>
       <p>You do not have any added cover letters.</p>
     <% else %>
+    <div class="current-documents">
       <% current_user.cover_letters.each do |cover_letter| %>
+      <div class="document">
         <%= cover_letter.name %>
-        <%= link_to "Delete", cover_letter_path(cover_letter), method: :delete %>
+        <%= link_to "Delete", cover_letter_path(cover_letter), method: :delete, class: "select-option-button" %>
+        </div>
       <% end %>
+    </div>
     <% end %>
   </div>
 
@@ -162,14 +166,14 @@
     <% if current_user.jobs.empty? %>
       <p>You do not have any added jobs.</p>
     <% else %>
-    <ul>
-      <li>
+      <div class="current-documents">
         <% current_user.jobs.each do |job| %>
+        <div class="document">
         <%= job.company_name %>: <%= job.job_title %>
-        <%= link_to "Delete", job_path(job), method: :delete %>
+        <%= link_to "Delete", job_path(job), method: :delete, class: "select-option-button" %>
+        </div>
         <% end %>
-      </li>
-    </ul>
+      </div>
     <% end %>
   </div>
 
