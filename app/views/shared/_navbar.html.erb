@@ -4,7 +4,7 @@
   </li>
   <li>
     <div class="brand">
-      <h1>Job<span>Score</span></h1>
+      <h4>Job<span>Score</span></h4>
     </div>
   </li>
 </ul>
@@ -45,10 +45,7 @@
       </li>
       <% else %>
       <li>
-        <%= link_to "Analysis Examples", "#" %>
-      </li>
-      <li>
-        <%= link_to "Login with LinkedIn", linkedin_login_path %>
+        <%= link_to image_tag("linkedin-login.png", class: "linkedin-login"), linkedin_login_path %>
       </li>
       <% end %>
     </ul>
