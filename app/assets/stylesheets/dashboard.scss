@@ -15,7 +15,7 @@
   border: 1px solid #257C9E;
   background: #2A88AD;
   font: normal 15px 'Bitter', serif;
-  h1 {
+  h5 {
     font-size: 22px;
   }
 }
@@ -182,4 +182,9 @@
 .form-style input[type="submit"]:hover {
     background: #2A6881;
     box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
+}
+
+.current-document {
+  display: flex;
+  flex-direction: column;
 }
