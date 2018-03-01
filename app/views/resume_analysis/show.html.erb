@@ -1,12 +1,14 @@
-<%= form_tag :resume_analysis, method: :get do %>
-  <%= label_tag "Resume" %>
-  <%= select_tag "resume", options_from_collection_for_select(@user_resumes, "id", "name", params[:resume].to_i) %>
+<div class="flex-center">
+  <div class="select-options">
+    <%= form_tag :resume_analysis, method: :get do %>
+      <%= select_tag "resume", options_from_collection_for_select(@user_resumes, "id", "name", params[:resume].to_i) %>
 
-  <%= label_tag "Job" %>
-  <%= select_tag "id", options_from_collection_for_select(@user_jobs, "id", "full_title", params[:id].to_i) %>
+      <%= select_tag "id", options_from_collection_for_select(@user_jobs, "id", "full_title", params[:id].to_i) %>
 
-  <%= submit_tag "View Analysis" %>
-<% end %>
+      <%= submit_tag "View Analysis" %>
+    <% end %>
+  </div>
+</div>
 
 <div class="form-style">
   <h3 class="form-head">Keywords</h3>
