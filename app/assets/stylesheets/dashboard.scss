@@ -20,6 +20,24 @@
   }
 }
 
+.tone-head {
+  width: 100%;
+  padding:20px;
+  border-radius: 10px;
+  padding: 15px 30px 10px 30px;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+  border: 1px solid #257C9E;
+  font: normal 18px 'Bitter', serif;
+  background: #257C9E;
+}
+
+.tone-container {
+  width: 80%;
+  margin-top: 20px;
+}
+
 .form-display-buttons {
   width: 60%;
   display: flex;
@@ -62,6 +80,7 @@
   border: 1px solid #257C9E;
   font: normal 15px 'Bitter', serif;
   text-align: center;
+  margin-top: 10px;
 }
 
 .image-button {
@@ -75,6 +94,7 @@
   border: 1px solid #257C9E;
   font: normal 15px 'Bitter', serif;
   text-align: center;
+  margin-top: 10px;
 }
 
 .button-activated {

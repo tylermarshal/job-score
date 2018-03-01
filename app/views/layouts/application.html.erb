@@ -9,6 +9,7 @@
     <link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
     <%= favicon_link_tag(asset_path("score-arrow-xs.png")) %>
+    <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %> 
   </head>
 
   <header>
@@ -22,7 +23,6 @@
 
   <%= yield %>
 
-  <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>  
   <%= javascript_include_tag 'application' %>
   </body>
 </html>
