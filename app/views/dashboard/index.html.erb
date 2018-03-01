@@ -19,10 +19,12 @@
     <h3 class="paste form-head">Add a New Resume</h3>
     <div class="inactive">
       <div class="section"><span>1</span>Paste Text or Add a Photo of Your Resume</div>
-      <div class="form-display-buttons">
-        <h2 class="paste-button button-activated">Paste Text</h2>
-        <h2 class="image-button button-deactivated">Add a Photo</h2>
-      </div>
+        <div class="flex-center">
+          <div class="form-display-buttons">
+            <h2 class="paste-button button-activated">Paste Text</h2>
+            <h2 class="image-button button-deactivated">Add a Photo</h2>
+          </div>
+        </div>
       <div class="paste-wrapper">
         <%= form_for @resume, :url => {:controller => :resumes, :action => "create"}  do |f| %>
         <div class="inner-wrap">
@@ -52,10 +54,12 @@
     <h3 class="paste form-head">Add a New Cover Letter</h3>
     <div class="inactive">
       <div class="section"><span>2</span>Paste Text or Add a Photo of Your Cover Letter</div>
-      <div class="form-display-buttons">
-        <h2 class="paste-button button-activated">Paste Text</h2>
-        <h2 class="image-button button-deactivated">Add a Photo</h2>
-      </div>
+        <div class="flex-center">
+          <div class="form-display-buttons">
+            <h2 class="paste-button button-activated">Paste Text</h2>
+            <h2 class="image-button button-deactivated">Add a Photo</h2>
+          </div>
+        </div>
       <div class="paste-wrapper">
         <%= form_for @cover_letter, :url => {:controller => :cover_letters, :action => "create"}  do |f| %>
         <div class="inner-wrap">
@@ -86,10 +90,12 @@
     <h3 class="paste form-head">Add a New Job Description</h3>
     <div class="inactive">
       <div class="section"><span>3</span>Paste Text or Add a Photo of the Job Description</div>
-      <div class="form-display-buttons">
-        <h2 class="paste-button button-activated">Paste Text</h2>
-        <h2 class="image-button button-deactivated">Add a Photo</h2>
-      </div>
+        <div class="flex-center">
+          <div class="form-display-buttons">
+            <h2 class="paste-button button-activated">Paste Text</h2>
+            <h2 class="image-button button-deactivated">Add a Photo</h2>
+          </div>
+        </div>
       <div class="paste-wrapper">
         <%= form_for @job, :url => {:controller => :jobs, :action => "create"}  do |f| %>
         <div class="inner-wrap">
