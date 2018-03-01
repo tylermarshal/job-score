@@ -1,18 +1,34 @@
-<%= form_tag :cover_letter_analysis, method: :get do %>
-  <%= label_tag "Cover Letter" %>
-  <%= select_tag "cover_letter", options_from_collection_for_select(@user_cover_letters, "id", "name", params[:cover_letter].to_i) %>
+<div class="flex-center">
+  <div class="select-options">
+    <%= form_tag :cover_letter_analysis, method: :get do %>
 
-  <%= label_tag "Job" %>
-  <%= select_tag "id", options_from_collection_for_select(@user_jobs, "id", "full_title", params[:id].to_i) %>
+      <%= select_tag "cover_letter", options_from_collection_for_select(@user_cover_letters, "id", "name", params[:cover_letter].to_i) %>
 
-  <%= submit_tag "View Analysis" %>
-<% end %>
+      <%= select_tag "id", options_from_collection_for_select(@user_jobs, "id", "full_title", params[:id].to_i) %>
+
+      <%= submit_tag "View Analysis" %>
+
+    <% end %>
+  </div>
+</div>
 
 
-<h3>Overall Tone</h3>
+<div class="flex-center charts">
+  <div class="tone-container">
+    <h3 class="tone-head">Overall Tone</h3>
+  </div>
+</div>
+<%= yield :charts_js %>
+<div class="flex-center">
 <% @cover_letter.cover_letter_document_tones.each do |tone| %>
-  <%= pie_chart tone.score %>
+  <div class="tone">
+    <div class="tone-label">
+      <%= tone.tone %>
+    </div>
+    <%= pie_chart([["#{tone.tone}", tone.score*100], ["", 100-(tone.score*100)]], donut: true, colors: ['#257C9E', '#f7f5f1'], width: "400px", height: "200px", legend: "none", library: {backgroundColor: '#f7f5f1'}) %>
+  </div>
 <% end %>
+</div>
 
 <% unless @cover_letter.cover_letter_sentence_tones.confident.empty? %>
 <div class="form-style">
