@@ -180,11 +180,11 @@
             <div class="column">
               <% slice.each do |entity| %>
               <% if entity.wikipedia.nil? %>
-                <div>
+                <div class="keyword">
                   <%= entity.entity.capitalize %>
                 </div>
               <% else %>
-                <div>
+                <div class="keyword">
                   <%= link_to entity.entity.capitalize, entity.wikipedia %>
                 </div>
               <% end %>
