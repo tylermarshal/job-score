@@ -23,12 +23,12 @@ I think that my skill set aligns perfectly with the needs of Health First Clinic
 
     visit dashboard_index_path
 
-    expect(page).to have_link("Paste a Cover Letter")
+    expect(page).to have_content("Add a New Cover Letter")
 
     fill_in "cover_letter[name]", with: "Cover Letter 1"
     fill_in "cover_letter[body]", with: cover_letter_text
 
-    click_on "Add Cover Letter"
+    click_button("Add Cover Letter", match: :first)
 
     expect(current_path).to eq(dashboard_index_path)
 
@@ -36,7 +36,6 @@ I think that my skill set aligns perfectly with the needs of Health First Clinic
 
     cover_letter = CoverLetter.last
 
-    expect(cover_letter.name).to eq ("Cover Letter 1")
-    expect(cover_letter.body).to eq (cover_letter_text)
+    expect(cover_letter.name).to eq("Cover Letter 1")
   end
 end

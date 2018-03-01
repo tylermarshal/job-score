@@ -38,8 +38,8 @@
       <div class="section">Resume Word Count: <%= @resume.word_count %></div>
       <% if @resume.word_count > 750 %>
         <p>If you are not applying to executive-level, government, or Australia-based jobs, consider reducing your resume length to under 750 words to increase focus and for ease of reading by recruiters.</p>
-      <% elsif @resume.word_count < 250 %>
-        <p>Your resume word count is low and you should consider adding more content. Summaries, projects, volunteer work, skills, and awards are great additions beyond work experience and schooling.</p>
+      <% elsif @resume.word_count < 300 %>
+        <p>Your resume word count is low and you should consider adding more content. Summaries, projects, volunteer work, skills, and awards are great additions beyond work experience and education.</p>
       <% else %>
         <p>Your resume word count is right on par with profressionals with zero to ten years of experience. Boost your resume by interchanging the keywords above without adding too much additional content.</p>
       <% end %>

@@ -1,8 +1,23 @@
 require 'rails_helper'
 
-describe 'a logged in user visits their dashboard' do
-  it 'the user can paste their cover letter to be added to their saved cover letters' do
+describe 'a logged in user visits the cover letter analysis page' do
+  it 'the user see their analysis' do
     user = create(:user)
+
+    cover_letter_text = "As a customer-obsessed professional with a passion for the healthcare industry, I was thrilled to learn that Health First Medical Clinic needs a Customer Service Manager. Presently, I am a Senior Customer Service Representative with six years of experience. I am registered with the California State Board of Pharmacy and have a B.A. in Management from Golden Gate University in San Francisco.
+
+I have built on my education with hands-on customer service experience at Kaiser Permanente. I started on the ground floor as a customer service rep in the telephone call center; after two years, my employer promoted me to Senior Customer Service rep, handling both phone and email inquiries. I am currently serving as interim Customer Service Manager while my supervisor is on maternity leave, managing a team of 20 customer service reps.
+
+You need someone with at least a year of experience in reimbursement case management, but I offer much more. During my time at Kaiser, I have mastered reimbursement case management and monitoring customer service metrics across my team. I have spent the last five years developing a keen understanding of claim adjudication and drug reimbursement issues and medical terminology, as well.
+
+I have a proven track record of efficiently handling customer calls and effectively handling customer e-mail inquiries. Under my interim management, specifically:
+
+•
+Customer service surveys indicate an 11% increase in customer satisfaction with our department in just two months
+•
+Employee absenteeism in my department dropped by 5%
+I think that my skill set aligns perfectly with the needs of Health First Clinic. Thank you for reviewing my credentials. I look forward to learning more about the opportunity.
+"
 
     job_text = "Database Administrator
 SendGrid is a proven cloud-based customer communication platform that successfully delivers over 25 billion emails each month for Internet and mobile-based customers like Airbnb, Spotify, and Uber. We are looking for a talented and passionate individual to help manage our world-class SaaS email delivery infrastructure. You will be part of a team that ensures the reliability and performance of a large and diverse data storage stack. You will directly engage with development teams to provide data-relevant advice and feedback, and serve as an information conduit back to other Ops team members. Additionally, you will continually improve the velocity of our deployment pipeline through automation and monitoring of data storage systems.
@@ -28,25 +43,19 @@ You are an advanced beginner in a unix shell environment
 You are able to demonstrate yourself as a quick learner of new things
 You know how and when to escalate when you are stuck on a task"
 
+    job = create(:job, description: job_text, user: user)
+    cover_letter = create(:cover_letter, body: cover_letter_text, user: user)
+
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-    visit dashboard_index_path
+    visit cover_letter_analysis_path
 
-    expect(page).to have_content("Add a New Job Description")
+    expect(page).to have_content("Cover Letter Analysis")
+    expect(page).to have_content("Overall Tone")
+    expect(page).to have_content("Keywords")
 
-    fill_in "job[company_name]", with: "Company 1"
-    fill_in "job[job_title]", with: "Job 1"
-    fill_in "job[description]", with: job_text
+    expect(page).to have_css(".charts")
+    expect(page).to have_css(".form-style")
 
-    click_button("Add Job", match: :first)
-
-    expect(current_path).to eq(dashboard_index_path)
-
-    expect(page).to have_content("Job 1")
-
-    job = Job.last
-
-    expect(job.company_name).to eq ("Company 1")
-    expect(job.job_title).to eq ("Job 1")
   end
 end

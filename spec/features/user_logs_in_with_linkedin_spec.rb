@@ -9,9 +9,10 @@ describe "a user goes to the homepage" do
 
       visit "/"
       expect(page.status_code).to eq(200)
-      click_link "Login with LinkedIn"
-      expect(current_path).to eq("/dashboard")
-      expect(page).to have_link("Logout")
+
+      page.first(".linkedin-login").click
+
+      expect(current_path).to eq("/")
 
     end
   end

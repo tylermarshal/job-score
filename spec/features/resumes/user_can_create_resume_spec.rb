@@ -33,12 +33,12 @@ Education
 
     visit dashboard_index_path
 
-    expect(page).to have_link("Paste a Resume")
+    expect(page).to have_content("Add a New Resume")
 
     fill_in "resume[name]", with: "Resume 1"
     fill_in "resume[body]", with: resume_text
 
-    click_on "Add Resume"
+    click_button("Add Resume", match: :first)
 
     expect(current_path).to eq(dashboard_index_path)
 
@@ -47,6 +47,5 @@ Education
     resume = Resume.last
 
     expect(resume.name).to eq ("Resume 1")
-    expect(resume.body).to eq (resume_text)
   end
 end
