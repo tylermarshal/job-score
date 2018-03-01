@@ -5,15 +5,18 @@
 
       <%= select_tag "id", options_from_collection_for_select(@user_jobs, "id", "full_title", params[:id].to_i) %>
 
-      <%= submit_tag "View Analysis" %>
+      <%= submit_tag "View Analysis", class: "select-option-button" %>
     <% end %>
   </div>
 </div>
 
+<div class="flex-center">
+  <h1>Resume Analysis</h1>
+</div>
+
 <div class="form-style">
   <h3 class="form-head">Keywords</h3>
-    <div class="inactive">
-      <div class="section">Keywords you may want to consider adding to your resume, in order to better match better with the job description</div>
+      <div class="section">To better match the job description, you should consider adding these keywords</div>
         <ul>
           <% @keywords.each do |keyword| %>
             <% if keyword.wikipedia.nil? %>
@@ -27,5 +30,17 @@
             <% end %>
           <% end %>
         </ul>
-    </div>
+</div>
+
+
+<div class="form-style">
+  <h3 class="form-head">Word Count</h3>
+      <div class="section">Resume Word Count: <%= @resume.word_count %></div>
+      <% if @resume.word_count > 750 %>
+        <p>If you are not applying to executive-level, government, or Australia-based jobs, consider reducing your resume length to under 750 words to increase focus and for ease of reading by recruiters.</p>
+      <% elsif @resume.word_count < 250 %>
+        <p>Your resume word count is low and you should consider adding more content. Summaries, projects, volunteer work, skills, and awards are great additions beyond work experience and schooling.</p>
+      <% else %>
+        <p>Your resume word count is right on par with profressionals with zero to ten years of experience. Boost your resume by interchanging the keywords above without adding too much additional content.</p>
+      <% end %>
 </div>
