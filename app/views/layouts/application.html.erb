@@ -17,9 +17,13 @@
   </header>
   <body class="<%= params[:controller] %>-<%= params[:action] %>">
 
-  <% flash.each do |name, msg| %>
-  <%= content_tag :div, raw(msg) %>
-  <% end %>
+<div class="flex-center">
+  <div class="flash-text">
+    <% flash.each do |name, msg| %>
+    <%= content_tag :div, raw(msg) %>
+    <% end %>
+  </div>
+</div>
 
   <%= yield %>
 

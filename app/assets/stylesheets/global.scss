@@ -86,5 +86,10 @@ a {
 	padding: 10px;
 	&:first-child { margin-left: 0; }
 	&:last-child { margin-right: 0; }
+}
 
+.flash-text {
+  color: #f48942;
+  font: normal 15px 'Bitter', serif;
+  margin-top: 10px;
 }
