@@ -11,6 +11,13 @@ class JobsController < ApplicationController
     end
   end
 
+  def destroy
+    @job = Job.find(params[:id])
+    @job.destroy
+
+    redirect_to dashboard_index_path
+  end
+
   private
 
     def job_params

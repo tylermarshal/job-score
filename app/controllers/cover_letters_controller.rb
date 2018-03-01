@@ -13,6 +13,13 @@ class CoverLettersController < ApplicationController
     end
   end
 
+  def destroy
+    @cover_letter = CoverLetter.find(params[:id])
+    @cover_letter.destroy
+
+    redirect_to dashboard_index_path
+  end
+
   private
 
     def cover_letter_params

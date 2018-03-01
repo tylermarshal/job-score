@@ -11,6 +11,13 @@ class ResumesController < ApplicationController
     end
   end
 
+  def destroy
+    @resume = Resume.find(params[:id])
+    @resume.destroy
+
+    redirect_to dashboard_index_path
+  end
+
   private
 
     def resume_params
