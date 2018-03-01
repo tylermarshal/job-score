@@ -1,7 +1,7 @@
 <div class="flex-center">
   <div class="dashboard-container">
     <div class="heading-box">
-      <h1>Your Dashboard</h1>
+      <h5>Your Dashboard</h5>
       <p class="inactive">Add new or manage your existing resumes, cover letters, or job descriptions</p>
     </div>
   </div>
@@ -134,9 +134,14 @@
     <% if current_user.resumes.empty? %>
       <p>You do not have any added resumes.</p>
     <% else %>
+    <div class="current-documents">
       <% current_user.resumes.each do |resume| %>
+      <div class="document">
         <%= resume.name %>
+        <%= link_to "Delete", resume_path(resume), method: :delete %>
+      </div>
       <% end %>
+    </div>
     <% end %>
   </div>
 
@@ -147,6 +152,7 @@
     <% else %>
       <% current_user.cover_letters.each do |cover_letter| %>
         <%= cover_letter.name %>
+        <%= link_to "Delete", cover_letter_path(cover_letter), method: :delete %>
       <% end %>
     <% end %>
   </div>
@@ -160,6 +166,7 @@
       <li>
         <% current_user.jobs.each do |job| %>
         <%= job.company_name %>: <%= job.job_title %>
+        <%= link_to "Delete", job_path(job), method: :delete %>
         <% end %>
       </li>
     </ul>
