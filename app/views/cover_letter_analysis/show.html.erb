@@ -26,150 +26,155 @@
 <% @cover_letter.cover_letter_document_tones.each do |tone| %>
   <div class="tone">
     <div class="tone-label">
-      <%= tone.tone %>
+      <%= tone.tone %> - <%= (tone.score*100).to_i %>%
     </div>
     <%= pie_chart([["#{tone.tone}", tone.score*100], ["", 100-(tone.score*100)]],
                     donut: true,
-                    colors: ['#257C9E', '#f7f5f1'],
                     width: "400px",
                     height: "200px",
                     legend: "none",
-                    library: {backgroundColor: '#f7f5f1'}) %>
+                    library: {backgroundColor: 'transparent',
+                                  pieSliceText: 'none',
+                                  enableInteractivity: 'false',
+                                  pieHole: 0.7,
+                                  pieSliceBorderColor: 'transparent',
+                                  slices: { "0": { color: '#257C9E' }, "1": { color: 'transparent' }}
+                                  }) %>
   </div>
 <% end %>
 </div>
 
 <% unless @cover_letter.cover_letter_sentence_tones.confident.empty? %>
-<div class="form-style">
-  <h3 class="form-head">Confident</h3>
-      <div class="section">Parts of your cover letter that display confidence</div>
-      <ul class="sentence-group">
-        <% @cover_letter.cover_letter_sentence_tones.confident.each do |sentence| %>
-        <li class="sentence-info">
-          <div class="sentence">
-            <%= sentence.sentence %>
-          </div>
-          <div class="score">
-            - <%= (sentence.score*100).to_i.round(0) %>%
-          </div>
-        </li>
-        <% end %>
-      </ul>
-</div>
-<% end %>
-
-<% unless @cover_letter.cover_letter_sentence_tones.joy.empty? %>
-<div class="form-style">
-  <h3 class="form-head">Joy</h3>
-      <div class="section">Parts of your cover letter that display joy</div>
-      <ul class="sentence-group">
-      <% @cover_letter.cover_letter_sentence_tones.joy.each do |sentence| %>
-        <li class="sentence-info">
-          <div class="sentence">
-            <%= sentence.sentence %>
-          </div>
-          <div class="score">
-            - <%= (sentence.score*100).to_i.round(0) %>%
-          </div>
-        </li>
-        <% end %>
-      </ul>
-</div>
-<% end %>
-
-<% unless @cover_letter.cover_letter_sentence_tones.analytical.empty? %>
-<div class="form-style">
-  <h3 class="form-head">Analytical</h3>
-      <div class="section">Parts of your cover letter that are analytical</div>
+  <div class="form-style">
+    <h3 class="form-head-confident">Confident</h3>
+        <div class="section">Parts of your cover letter that display confidence</div>
         <ul class="sentence-group">
-          <% @cover_letter.cover_letter_sentence_tones.analytical.each do |sentence| %>
+          <% @cover_letter.cover_letter_sentence_tones.confident.each do |sentence| %>
           <li class="sentence-info">
             <div class="sentence">
               <%= sentence.sentence %>
             </div>
             <div class="score">
-              - <%= (sentence.score*100).to_i.round(0) %>%
+              - <%= (sentence.score*100).to_i %>%
             </div>
           </li>
           <% end %>
         </ul>
-</div>
+  </div>
+<% end %>
+
+<% unless @cover_letter.cover_letter_sentence_tones.joy.empty? %>
+  <div class="form-style">
+    <h3 class="form-head-joy">Joy</h3>
+        <div class="section">Parts of your cover letter that display joy</div>
+        <ul class="sentence-group">
+        <% @cover_letter.cover_letter_sentence_tones.joy.each do |sentence| %>
+          <li class="sentence-info">
+            <div class="sentence">
+              <%= sentence.sentence %>
+            </div>
+            <div class="score">
+              - <%= (sentence.score*100).to_i %>%
+            </div>
+          </li>
+          <% end %>
+        </ul>
+  </div>
+<% end %>
+
+<% unless @cover_letter.cover_letter_sentence_tones.analytical.empty? %>
+  <div class="form-style">
+    <h3 class="form-head-analytical">Analytical</h3>
+        <div class="section">Parts of your cover letter that are analytical</div>
+          <ul class="sentence-group">
+            <% @cover_letter.cover_letter_sentence_tones.analytical.each do |sentence| %>
+            <li class="sentence-info">
+              <div class="sentence">
+                <%= sentence.sentence %>
+              </div>
+              <div class="score">
+                - <%= (sentence.score*100).to_i %>%
+              </div>
+            </li>
+            <% end %>
+          </ul>
+  </div>
 <% end %>
 
 <% unless @cover_letter.cover_letter_sentence_tones.tentative.empty? %>
-<div class="form-style">
-  <h3 class="form-head">Tenative</h3>
-      <div class="section">Parts of your cover letter that display tentativeness</div>
-      <ul class="sentence-group">
-        <% @cover_letter.cover_letter_sentence_tones.tentative.each do |sentence| %>
-        <li class="sentence-info">
-          <div class="sentence">
-            <%= sentence.sentence %>
-          </div>
-          <div class="score">
-            - <%= (sentence.score*100).to_i.round(0) %>%
-          </div>
-        </li>
-        <% end %>
-      </ul>
-</div>
+  <div class="form-style">
+    <h3 class="form-head-tentative">Tenative</h3>
+        <div class="section">Parts of your cover letter that display tentativeness</div>
+        <ul class="sentence-group">
+          <% @cover_letter.cover_letter_sentence_tones.tentative.each do |sentence| %>
+          <li class="sentence-info">
+            <div class="sentence">
+              <%= sentence.sentence %>
+            </div>
+            <div class="score">
+              - <%= (sentence.score*100).to_i %>%
+            </div>
+          </li>
+          <% end %>
+        </ul>
+  </div>
 <% end %>
 
 <% unless @cover_letter.cover_letter_sentence_tones.sadness.empty? %>
-<div class="form-style">
-  <h3 class="form-head">Sadness</h3>
-      <div class="section">Parts of your cover letter that display sadness</div>
-      <ul class="sentence-group">
-        <% @cover_letter.cover_letter_sentence_tones.sadness.each do |sentence| %>
-        <li class="sentence-info">
-          <div class="sentence">
-            <%= sentence.sentence %>
-          </div>
-          <div class="score">
-            - <%= (sentence.score*100).to_i.round(0) %>%
-          </div>
-        </li>
-        <% end %>
-      </ul>
-</div>
+  <div class="form-style">
+    <h3 class="form-head-sadness">Sadness</h3>
+        <div class="section">Parts of your cover letter that display sadness</div>
+        <ul class="sentence-group">
+          <% @cover_letter.cover_letter_sentence_tones.sadness.each do |sentence| %>
+          <li class="sentence-info">
+            <div class="sentence">
+              <%= sentence.sentence %>
+            </div>
+            <div class="score">
+              - <%= (sentence.score*100).to_i %>%
+            </div>
+          </li>
+          <% end %>
+        </ul>
+  </div>
 <% end %>
 
 <% unless @cover_letter.cover_letter_sentence_tones.anger.empty? %>
-<div class="form-style">
-  <h3 class="form-head">Anger</h3>
-      <div class="section">Parts of your cover letter that display anger</div>
-      <ul class="sentence-group">
-        <% @cover_letter.cover_letter_sentence_tones.anger.each do |sentence| %>
-        <li class="sentence-info">
-          <div class="sentence">
-            <%= sentence.sentence %>
-          </div>
-          <div class="score">
-            - <%= (sentence.score*100).to_i.round(0) %>%
-          </div>
-        </li>
-        <% end %>
-      </ul>
-</div>
+  <div class="form-style">
+    <h3 class="form-head">Anger</h3>
+        <div class="section">Parts of your cover letter that display anger</div>
+        <ul class="sentence-group">
+          <% @cover_letter.cover_letter_sentence_tones.anger.each do |sentence| %>
+          <li class="sentence-info">
+            <div class="sentence">
+              <%= sentence.sentence %>
+            </div>
+            <div class="score">
+              - <%= (sentence.score*100).to_i %>%
+            </div>
+          </li>
+          <% end %>
+        </ul>
+  </div>
 <% end %>
 
 <% unless @cover_letter.cover_letter_sentence_tones.fear.empty? %>
-<div class="form-style">
-  <h3 class="form-head">Fear</h3>
-      <div class="section">Parts of your cover letter that display fear</div>
-      <ul class="sentence-group">
-        <% @cover_letter.cover_letter_sentence_tones.fear.each do |sentence| %>
-        <li class="sentence-info">
-          <div class="sentence">
-            <%= sentence.sentence %>
-          </div>
-          <div class="score">
-            - <%= (sentence.score*100).to_i.round(0) %>%
-          </div>
-        </li>
-        <% end %>
-      </ul>
-</div>
+  <div class="form-style">
+    <h3 class="form-head">Fear</h3>
+        <div class="section">Parts of your cover letter that display fear</div>
+        <ul class="sentence-group">
+          <% @cover_letter.cover_letter_sentence_tones.fear.each do |sentence| %>
+          <li class="sentence-info">
+            <div class="sentence">
+              <%= sentence.sentence %>
+            </div>
+            <div class="score">
+              - <%= (sentence.score*100).to_i %>%
+            </div>
+          </li>
+          <% end %>
+        </ul>
+  </div>
 <% end %>
 
 <div class="form-style">
