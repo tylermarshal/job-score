@@ -25,6 +25,8 @@ gem 'newrelic_rpm'
 gem 'redis-rails'
 gem 'sidekiq'
 gem 'chartkick'
+gem 'pdf-reader'
+gem 'webhoseio-ruby'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
