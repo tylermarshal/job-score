@@ -2,11 +2,22 @@
 
 body {
   background: $accent-color;
+  margin-bottom: 100px;
 }
 
 header {
   background: $primary-color;
   padding-bottom: 20px;
+}
+
+h1 {
+  margin-top: 20px;
+  color: $form-background;
+  font: normal 25px 'Bitter', serif;
+}
+
+a {
+  text-decoration: none;
 }
 
 .inactive {
@@ -23,27 +34,21 @@ header {
 }
 
 .select-option-button {
-  background: #2A88AD;
+  background: $form-background;
   padding: 4px 10px 4px 10px;
   border-radius: 5px;
   color: #fff;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
-  border: 1px solid #257C9E;
+  border: 1px solid $form-border;
   font: normal 15px 'Bitter', serif;
   margin-left: 10px;
-}
-
-h1 {
-  margin-top: 20px;
-  color: #2A88AD;
-  font: normal 25px 'Bitter', serif;
 }
 
 .linkedin-login {
   width: 200px;
   height: auto;
   box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
-  border: 1px solid #257C9E;
+  border: 1px solid $form-border;
 }
 
 .home-index {
@@ -58,17 +63,13 @@ h1 {
   margin-top: 5%;
   text-align: center;
   h2 {
-    color: #2A88AD;
+    color: $form-background;
     font: normal 35px 'Bitter', serif;
   }
   h4 {
-    color: #2A88AD;
+    color: $form-background;
     font: normal 25px 'Bitter', serif;
   }
-}
-
-a {
-  text-decoration: none;
 }
 
 .columns {
@@ -96,8 +97,4 @@ a {
 
 .keyword {
   margin-bottom: 10px;
-}
-
-body {
-  margin-bottom: 100px;
 }

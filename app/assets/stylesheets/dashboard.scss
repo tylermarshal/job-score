@@ -12,8 +12,8 @@
   color: #fff;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
   box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
-  border: 1px solid #257C9E;
-  background: #2A88AD;
+  border: 1px solid $form-border;
+  background: $form-background;
   font: normal 15px 'Bitter', serif;
   h5 {
     font-size: 22px;
@@ -22,15 +22,15 @@
 
 .tone-head {
   width: 100%;
-  padding:20px;
+  padding: 20px;
   border-radius: 10px;
   padding: 15px 30px 10px 30px;
   color: #fff;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
   box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
-  border: 1px solid #257C9E;
+  border: 1px solid $form-border;
   font: normal 18px 'Bitter', serif;
-  background: #257C9E;
+  background: $form-background;
 }
 
 .tone-container {
@@ -51,7 +51,7 @@
   color: #fff;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
   box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
-  border: 1px solid #257C9E;
+  border: 1px solid $form-border;
   font: normal 15px 'Bitter', serif;
   text-align: center;
 }
@@ -64,7 +64,7 @@
   color: #fff;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
   box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
-  border: 1px solid #257C9E;
+  border: 1px solid $form-border;
   font: normal 15px 'Bitter', serif;
   text-align: center;
 }
@@ -77,7 +77,7 @@
   color: #fff;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
   box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
-  border: 1px solid #257C9E;
+  border: 1px solid $form-border;
   font: normal 15px 'Bitter', serif;
   text-align: center;
   margin-top: 10px;
@@ -91,14 +91,14 @@
   color: #fff;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
   box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
-  border: 1px solid #257C9E;
+  border: 1px solid $form-border;
   font: normal 15px 'Bitter', serif;
   text-align: center;
   margin-top: 10px;
 }
 
 .button-activated {
-  background: #2A88AD;
+  background: $form-background;
 }
 
 .button-deactivated {
@@ -125,14 +125,14 @@
     margin-bottom: 15px;
 }
 .form-head {
-    background: #2A88AD;
+    background: $form-background;
     padding: 15px 30px 10px 30px;
     margin: -20px -20px 20px -20px;
     border-radius: 10px 10px 0 0;
     color: #fff;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
     box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
-    border: 1px solid #257C9E;
+    border: 1px solid $form-border;
     font: normal 18px 'Bitter', serif;
 }
 
@@ -152,13 +152,13 @@
 }
 
 .form-style .section{
-    color: #2A88AD;
+    color: $form-background;
     margin-bottom: 5px;
     font: normal 15px 'Bitter', serif;
 }
 
 .form-style .section span {
-    background: #2A88AD;
+    background: $form-background;
     padding: 5px 10px 5px 10px;
     position: absolute;
     border-radius: 50%;
@@ -170,12 +170,12 @@
 }
 
 .form-style input[type="submit"] {
-    background: #2A88AD;
+    background: $form-background;
     padding: 8px 20px 8px 20px;
     border-radius: 5px;
     color: #fff;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
-    border: 1px solid #257C9E;
+    border: 1px solid $form-border;
     font: normal 15px 'Bitter', serif;
 }
 

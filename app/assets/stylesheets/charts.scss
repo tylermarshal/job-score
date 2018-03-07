@@ -1,3 +1,5 @@
+@import "base";
+
 .tone {
   display: flex;
   flex-direction: column;
@@ -6,6 +8,6 @@
 }
 
 .tone-label {
-  color: #2A88AD;
+  color: $form-background;
   font: normal 15px 'Bitter', serif;
 }
