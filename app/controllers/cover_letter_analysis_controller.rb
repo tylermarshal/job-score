@@ -11,7 +11,6 @@ class CoverLetterAnalysisController < ApplicationController
       @cover_letter = @user_cover_letters.first
     end
     @keywords = EntityComparisonService.compare(@job, @cover_letter)
-    @percentage = EntityComparisonService.percentage(@job, @cover_letter)
   end
 
 end
