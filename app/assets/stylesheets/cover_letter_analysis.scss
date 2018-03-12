@@ -1,3 +1,5 @@
+@import "base";
+
 .sentence-group {
   display: flex;
   flex-direction: column;
@@ -11,6 +13,35 @@
 
 .score {
   margin-left: 5px;
-  color: #2A88AD;
+  color: $form-background;
   font: normal 15px 'Bitter', serif;
+}
+
+.form-head-tones {
+    background: $charcoal;
+    padding: 15px 30px 10px 30px;
+    margin: -20px -20px 20px -20px;
+    border-radius: 10px 10px 0 0;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+    box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+    border: 1px solid $charcoal;
+    font: normal 18px 'Bitter', serif;
+}
+
+.tone-head {
+  padding: 20px;
+  border-radius: 10px;
+  padding: 15px 30px 10px 30px;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+  border: 1px solid $charcoal;
+  font: normal 18px 'Bitter', serif;
+  background: $charcoal;
+}
+
+.tone-container {
+  width: 80%;
+  margin: 20px auto;
 }
