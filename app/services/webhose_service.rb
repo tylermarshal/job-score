@@ -1,9 +1,10 @@
 class WebhoseService
 
-  attr_reader :company
+  attr_reader :company, :news
 
   def initialize(company)
     @company = URI::encode(company)
+    @news = parse[:posts].map { |article| WebhoseArticle.new(article) }
   end
 
   def conn
@@ -18,10 +19,6 @@ class WebhoseService
 
   def parse
     JSON.parse(response.body, symbolize_names: true)
-  end
-
-  def generate
-    
   end
 
 end
