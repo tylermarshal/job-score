@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180228190309) do
+ActiveRecord::Schema.define(version: 20180311192610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,17 +25,6 @@ ActiveRecord::Schema.define(version: 20180228190309) do
     t.index ["cover_letter_id"], name: "index_cover_letter_document_tones_on_cover_letter_id"
   end
 
-  create_table "cover_letter_entities", force: :cascade do |t|
-    t.bigint "cover_letter_id"
-    t.citext "entity"
-    t.decimal "salience"
-    t.decimal "magnitude"
-    t.decimal "score"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["cover_letter_id"], name: "index_cover_letter_entities_on_cover_letter_id"
-  end
-
   create_table "cover_letter_sentence_tones", force: :cascade do |t|
     t.bigint "cover_letter_id"
     t.text "sentence"
@@ -44,16 +33,6 @@ ActiveRecord::Schema.define(version: 20180228190309) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cover_letter_id"], name: "index_cover_letter_sentence_tones_on_cover_letter_id"
-  end
-
-  create_table "cover_letter_sentiments", force: :cascade do |t|
-    t.text "sentence"
-    t.decimal "magnitude"
-    t.decimal "score"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "cover_letter_id"
-    t.index ["cover_letter_id"], name: "index_cover_letter_sentiments_on_cover_letter_id"
   end
 
   create_table "cover_letters", force: :cascade do |t|
@@ -88,16 +67,6 @@ ActiveRecord::Schema.define(version: 20180228190309) do
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
-  create_table "resume_entities", force: :cascade do |t|
-    t.bigint "resume_id"
-    t.citext "entity"
-    t.decimal "salience"
-    t.decimal "magnitude"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["resume_id"], name: "index_resume_entities_on_resume_id"
-  end
-
   create_table "resumes", force: :cascade do |t|
     t.bigint "user_id"
     t.citext "body"
@@ -120,12 +89,9 @@ ActiveRecord::Schema.define(version: 20180228190309) do
   end
 
   add_foreign_key "cover_letter_document_tones", "cover_letters"
-  add_foreign_key "cover_letter_entities", "cover_letters"
   add_foreign_key "cover_letter_sentence_tones", "cover_letters"
-  add_foreign_key "cover_letter_sentiments", "cover_letters"
   add_foreign_key "cover_letters", "users"
   add_foreign_key "job_entities", "jobs"
   add_foreign_key "jobs", "users"
-  add_foreign_key "resume_entities", "resumes"
   add_foreign_key "resumes", "users"
 end
