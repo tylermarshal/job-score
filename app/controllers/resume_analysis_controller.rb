@@ -11,7 +11,7 @@ class ResumeAnalysisController < ApplicationController
       @resume = @user_resumes.first
     end
     @keywords = EntityComparisonService.compare(@job, @resume)
-    @percentage = EntityComparisonService.percentage(@job, @resume)
+    @job.update_articles
   end
 
 end
