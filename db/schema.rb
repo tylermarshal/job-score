@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180311192610) do
+ActiveRecord::Schema.define(version: 20180312195022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,10 +88,21 @@ ActiveRecord::Schema.define(version: 20180311192610) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "webhose_articles", force: :cascade do |t|
+    t.bigint "job_id"
+    t.string "url"
+    t.string "site"
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_id"], name: "index_webhose_articles_on_job_id"
+  end
+
   add_foreign_key "cover_letter_document_tones", "cover_letters"
   add_foreign_key "cover_letter_sentence_tones", "cover_letters"
   add_foreign_key "cover_letters", "users"
   add_foreign_key "job_entities", "jobs"
   add_foreign_key "jobs", "users"
   add_foreign_key "resumes", "users"
+  add_foreign_key "webhose_articles", "jobs"
 end
