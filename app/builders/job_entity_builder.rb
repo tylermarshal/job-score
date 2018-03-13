@@ -1,4 +1,4 @@
-class JobEntityService
+class JobEntityBuilder
 
   def self.generate(job)
     entities = GoogleEntitySentimentService.analyze(job.description)
