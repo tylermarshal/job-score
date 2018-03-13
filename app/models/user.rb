@@ -1,8 +1,8 @@
 class User < ApplicationRecord
 
-  has_many :resumes
-  has_many :cover_letters
-  has_many :jobs
+  has_many :resumes, dependent: :destroy
+  has_many :cover_letters, dependent: :destroy
+  has_many :jobs, dependent: :destroy
 
   def self.from_omniauth(auth_info)
     user = find_by(uid: auth_info[:uid])
