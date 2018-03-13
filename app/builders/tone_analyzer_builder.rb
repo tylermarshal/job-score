@@ -1,4 +1,4 @@
-class ToneAnalyzerService
+class ToneAnalyzerBuilder
 
   attr_reader :response, :cover_letter
 
