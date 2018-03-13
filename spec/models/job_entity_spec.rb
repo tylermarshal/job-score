@@ -7,7 +7,7 @@ RSpec.describe JobEntity, type: :model do
     job = create(:job, user: user, description: text)
     # VCR.use_cassette("services/find_resume_entities") do
 
-      entities = JobEntityService.generate(job)
+      entities = JobEntityBuilder.generate(job)
       entity = entities.first
 
       expect(entities.count).to eq(12)
