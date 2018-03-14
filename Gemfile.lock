@@ -1,7 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    Ascii85 (1.0.3)
     actioncable (5.1.4)
       actionpack (= 5.1.4)
       nio4r (~> 2.0)
@@ -46,7 +45,6 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
-    afm (0.2.2)
     arel (8.0.0)
     bindex (0.5.0)
     builder (3.2.3)
@@ -122,7 +120,6 @@ GEM
       google-protobuf (~> 3.1)
       googleapis-common-protos-types (~> 1.0.0)
       googleauth (>= 0.5.1, < 0.7)
-    hashery (2.1.2)
     hashie (3.5.7)
     i18n (0.9.3)
       concurrent-ruby (~> 1.0)
@@ -166,12 +163,6 @@ GEM
       oauth
       omniauth (~> 1.0)
     os (0.9.6)
-    pdf-reader (2.1.0)
-      Ascii85 (~> 1.0.0)
-      afm (~> 0.2.1)
-      hashery (~> 2.0)
-      ruby-rc4
-      ttfunk
     pg (0.21.0)
     pry (0.11.3)
       coderay (~> 1.1.0)
@@ -245,7 +236,6 @@ GEM
       rspec-mocks (~> 3.7.0)
       rspec-support (~> 3.7.0)
     rspec-support (3.7.1)
-    ruby-rc4 (0.1.5)
     ruby_dep (1.5.0)
     sass (3.5.5)
       sass-listen (~> 4.0.0)
@@ -278,7 +268,6 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
-    ttfunk (1.5.1)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uglifier (4.1.5)
@@ -315,7 +304,6 @@ DEPENDENCIES
   multi_json
   newrelic_rpm
   omniauth-linkedin
-  pdf-reader
   pg (~> 0.18)
   pry
   puma (~> 3.7)
