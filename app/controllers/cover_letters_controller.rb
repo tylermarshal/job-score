@@ -3,8 +3,8 @@ class CoverLettersController < ApplicationController
   def create
     @cover_letter = current_user.cover_letters.new(cover_letter_params)
     if @cover_letter.save!
-      # ToneAnalyzerGeneratorJob.perform_later(@cover_letter)
-      ToneAnalyzerBuilder.new(@cover_letter).generate
+      ToneAnalyzerGeneratorJob.perform_later(@cover_letter)
+      # ToneAnalyzerBuilder.new(@cover_letter).generate
       redirect_to dashboard_index_path
     else
       flash.notice = "Something went wrong, try adding your cover letter again."
