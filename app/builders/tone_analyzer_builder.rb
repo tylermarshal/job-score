@@ -8,6 +8,7 @@ class ToneAnalyzerBuilder
   end
 
   def generate
+    puts "got to builder"
     generate_document_tone
     generate_sentence_tone
   end
