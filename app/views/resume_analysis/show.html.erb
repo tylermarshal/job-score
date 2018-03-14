@@ -1,9 +1,9 @@
 <div class="flex-center">
   <div class="select-options">
     <%= form_tag :resume_analysis, method: :get do %>
-      <%= select_tag "resume", options_from_collection_for_select(@user_resumes, "id", "name", params[:resume].to_i) %>
+      <%= select_tag "resume", options_from_collection_for_select(@resume_analysis.user_resumes, "id", "name", params[:resume].to_i) %>
 
-      <%= select_tag "id", options_from_collection_for_select(@user_jobs, "id", "full_title", params[:id].to_i) %>
+      <%= select_tag "id", options_from_collection_for_select(@resume_analysis.user_jobs, "id", "full_title", params[:id].to_i) %>
 
       <%= submit_tag "View Analysis", class: "select-option-button" %>
     <% end %>
@@ -18,7 +18,7 @@
   <h3 class="form-head">Keywords</h3>
       <div class="section">To better match the job description, you should consider adding these keywords</div>
         <div class="columns">
-          <% @keywords.each_slice(@keywords.count/3) do |slice| %>
+          <% @resume_analysis.keywords.each_slice(@resume_analysis.keywords.count/3) do |slice| %>
           <div class="column">
             <% slice.each do |entity| %>
               <% if entity.wikipedia.nil? %>
@@ -39,22 +39,22 @@
 
 <div class="form-style">
   <h3 class="form-head">Word Count</h3>
-      <div class="section">Resume Word Count: <%= @resume.word_count %></div>
-      <% if @resume.word_count > 750 %>
+      <div class="section">Resume Word Count: <%= @resume_analysis.resume.word_count %></div>
+      <% if @resume_analysis.resume.word_count > 750 %>
         <p>If you are not applying to executive-level, government, or Australia-based jobs, consider reducing your resume length to under 750 words to increase focus and for ease of reading by recruiters.</p>
-      <% elsif @resume.word_count < 300 %>
+      <% elsif @resume_analysis.resume.word_count < 300 %>
         <p>Your resume word count is low and you should consider adding more content. Summaries, projects, volunteer work, skills, and awards are great additions beyond work experience and education.</p>
       <% else %>
         <p>Your resume word count is right on par with profressionals with zero to ten years of experience. Boost your resume by interchanging the keywords above without adding too much additional content.</p>
       <% end %>
 </div>
 
-<% unless @job.webhose_articles.empty? %>
+<% unless @resume_analysis.job.webhose_articles.empty? %>
   <div class="form-style">
     <h3 class="form-head">News & Blog Articles</h3>
-        <div class="section">Read current events and blog articles about "<%= @job.company_name %>" to prepare you for the interview</div>
+        <div class="section">Read current events and blog articles about "<%= @resume_analysis.job.company_name %>" to prepare you for the interview</div>
 
-        <% @job.webhose_articles.first(10).each do |article| %>
+        <% @resume_analysis.job.webhose_articles.first(10).each do |article| %>
           <div class="article">
             <%= link_to article.title, article.url %> - <%= article.site %>
           </div>
