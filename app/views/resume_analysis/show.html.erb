@@ -49,13 +49,15 @@
       <% end %>
 </div>
 
-<div class="form-style">
-  <h3 class="form-head">News & Blog Articles</h3>
-      <div class="section">Read current events and blog articles about "<%= @job.company_name %>" to prepare you for the interview</div>
+<% unless @job.webhose_articles.empty? %>
+  <div class="form-style">
+    <h3 class="form-head">News & Blog Articles</h3>
+        <div class="section">Read current events and blog articles about "<%= @job.company_name %>" to prepare you for the interview</div>
 
-      <% @job.webhose_articles.first(10).each do |article| %>
-        <div class="article">
-          <%= link_to article.title, article.url %> - <%= article.site %>
-        </div>
-      <% end %>
-</div>
+        <% @job.webhose_articles.first(10).each do |article| %>
+          <div class="article">
+            <%= link_to article.title, article.url %> - <%= article.site %>
+          </div>
+        <% end %>
+  </div>
+<% end %>
