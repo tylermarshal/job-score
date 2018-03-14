@@ -25,7 +25,7 @@ class JobsController < ApplicationController
       if params[:image]
         params[:description] = GoogleVisionService.analyze(params[:image]).text
       elsif params[:job][:description]
-        params[:description] = params[:job][:description].gsub!(/([^\r\n])\r\n([^\r\n])/, '\1 \2')
+        params[:description] = params[:job][:description].squish
         params[:company_name] = params[:job][:company_name]
         params[:job_title] = params[:job][:job_title]
       end

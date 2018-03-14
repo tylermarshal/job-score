@@ -23,7 +23,7 @@ class ResumesController < ApplicationController
       if params[:image]
         params[:body] = GoogleVisionService.analyze(params[:image]).text
       elsif params[:resume][:body]
-        params[:body] = params[:resume][:body].gsub!(/([^\r\n])\r\n([^\r\n])/, '\1 \2')
+        params[:body] = params[:resume][:body].squish
         params[:name] = params[:resume][:name]
       end
       params.permit(:name, :body)
