@@ -8,7 +8,7 @@ class Job < ApplicationRecord
   end
 
   def update_articles
-    if webhose_articles.first.created_at + 86400 <= Time.now
+    if !self.webhose_articles.empty? && webhose_articles.first.created_at + 86400 <= Time.now
       webhose_articles.destroy_all
       WebhoseArticleBuilder.generate(self)
     end
