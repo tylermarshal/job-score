@@ -25,7 +25,7 @@ cd job-score
 bundle install
 ```
 
-From here you will need to set up the databases:
+From here you will need to set up the database:
 
 ```
 rails db:create db:migrate
