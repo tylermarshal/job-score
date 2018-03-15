@@ -44,7 +44,7 @@
         <%= link_to "Logout", logout_path, method: :delete %>
       </li>
       <% else %>
-      <li>
+      <li class="linkedin-container">
         <%= link_to image_tag("linkedin-login.png", class: "linkedin-login"), linkedin_login_path %>
       </li>
       <% end %>

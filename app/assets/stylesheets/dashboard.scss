@@ -27,7 +27,6 @@
 
 .left-button {
   width: 50%;
-  padding:20px;
   border-radius: 0 0 0 10px;
   padding: 15px 30px 10px 30px;
   color: #fff;
@@ -40,7 +39,6 @@
 
 .right-button {
   width: 50%;
-  padding:20px;
   border-radius: 0 0 10px 0;
   padding: 15px 30px 10px 30px;
   color: #fff;
@@ -50,6 +48,19 @@
   font: normal 15px 'Bitter', serif;
   text-align: center;
 }
+
+@media (max-width: 48em) {
+
+  .left-button {
+    font: normal 13px 'Bitter', serif;
+  }
+
+  .right-button {
+    font: normal 13px 'Bitter', serif;
+  }
+
+}
+
 
 .paste-button {
   width: 50%;

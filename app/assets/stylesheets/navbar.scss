@@ -31,7 +31,7 @@ nav {
     width: 35px;
     height: 5px;
     background-color: $accent-color;
-    margin: 6px 0;
+    margin: 6px 0 6px 6px;
   }
   .menu-button {
     color: $accent-color;
@@ -70,17 +70,19 @@ nav {
   }
 
   .bottom-nav li {
-    border-top: 2px solid $accent-color;
+    border-bottom: 2px solid $accent-color;
     width: 90%;
     font-size: 18px;
-    &:last-child {
-      border-bottom: 2px solid $accent-color;
-      width: 90%;
-    }
+    margin: 5px 0 5px 18px;
   }
 
   .full-navbar-border {
     display: none
+  }
+
+  .linkedin-container {
+    display: flex;
+    justify-content: center;
   }
 
 }
