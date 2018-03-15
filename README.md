@@ -13,7 +13,7 @@ Users can either paste text, take a picture, or upload an image of their resume,
 Clone the JobScore Github repository into a directory of your choosing.
 
 ```
-git clone hhttps://github.com/tylermarshal/job-score.git
+git clone https://github.com/tylermarshal/job-score.git
 ```
 
 Move into the JobScore directory & install the required gems.
