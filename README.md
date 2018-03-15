@@ -31,7 +31,14 @@ From here you will need to set up the database:
 rails db:create db:migrate
 ```
 
+To run the application locally, start a rails server:
+
+```
+rails s
+```
+
 After that you are all set analyze your resumes and cover letters and **score that job!**
+
 
 ## Testing
 
