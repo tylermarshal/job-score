@@ -4,6 +4,8 @@
 
 Users can either paste text, take a picture, or upload an image of their resume, cover letter, or job description to receive analysis. If a picture or image is taken, the Google Vision API is used to convert the image text to machine readable text.
 
+When users upload resumes, cover letters, and job descriptions, background workers are used to make asynchronous API calls for keyword and tone analysis.
+
 [Try it out on Heroku](https://job-score.herokuapp.com/)
 
 [![forthebadge](http://forthebadge.com/images/badges/made-with-ruby.svg)](#)
